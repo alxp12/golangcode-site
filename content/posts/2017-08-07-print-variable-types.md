@@ -11,16 +11,15 @@ tags:
   - reflect
   - variable
   - package
+  - printf
 ---
 
-Ever wanted to know the exact type name of the variable you're using? Using the `reflect` package we can do exactly this. The example below shows this for `int`, `string` and `float64` types. The `TypeOf` function will return a `Type` but we convert this to a string with `.String()`.
+Ever wanted to know the exact type name of the variable you're using? The `Printf` is capable of print exactly this information back out to you, like so:
 
 ```go
 package main
 
-import (
-    "fmt"
-)
+import "fmt"
 
 func main() {
     // Will print 'int'
@@ -34,5 +33,22 @@ func main() {
     // Will print 'float64'
     aFloat := 3.14
     fmt.Printf("%T\n", aFloat)
+}
+```
+
+Alternatively, you can also use the reflect package. The `TypeOf` function will return a `Type` but we convert this to a string with `.String()`.
+
+```go
+package main
+
+import (
+    "fmt"
+    "reflect"
+)
+
+func main() {
+    // Will print 'int'
+    anInt := 1234
+    fmt.Println(reflect.TypeOf(anInt).String())
 }
 ```
