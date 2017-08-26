@@ -42,9 +42,23 @@
         {{ if eq .Type "post" }}
             <i class="fa fa-ellipsis-h page-separator" aria-hidden="true"></i>
 
-            <p>See something which isn't right? You can contibute and update this page <a href="https://github.com/eddturtle/golangcode-site">on GitHub</a> or just let us know in the comments below. Thanks for reading.</p>
+            <p>See something which isn't right? You can contribute to this page <a href="https://github.com/eddturtle/golangcode-site">on GitHub</a> or just let us know in the comments below. Thanks for reading!</p>
+            
+            {{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+              {{ $.Scratch.Set "has_related" true }}
+            {{ end }}
 
-            <!-- <i class="fa fa-ellipsis-h page-separator" aria-hidden="true"></i> -->
+            {{ if $.Scratch.Get "has_related" }}
+                <div class="related-content">
+                    <h2>Related:</h2>
+                    <ul>
+                        {{ $num_to_show := .Site.Params.related_content_limit | default 5 }}
+                            {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+                            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> - {{ .Summary }}</li>
+                        {{ end }}
+                    </ul>
+                </div>
+            {{ end }}
 
             {{ if .Site.Params.enableGithubIssuesTips }}
                 {{ partial "github-issues-tip.html" . }}

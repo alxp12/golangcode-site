@@ -85,8 +85,10 @@ h1 {
 }
 
 h2 {
-    font: italic 19px/1.3em "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #bbb;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    color: #444;
+    font-weight: bold;
 }
 
 code {
@@ -234,6 +236,10 @@ nav.main-nav a.cta {
 a, #title, #post-list a:hover, #title:hover {
     text-decoration: none;
     color: #3a78d7;
+
+    &:hover {
+        color: darken(#3a78d7, 20%);
+    }
 }
 
 p a {
@@ -955,4 +961,31 @@ a.symbol:hover {
     text-align: center;
     font-size: 4.5em !important;
     color: #DDD;
+}
+
+.related-content {
+    position: relative;
+    padding: 5px 0;
+
+    ul {
+        overflow: hidden;
+        padding-top: 5px;
+    }
+    li {
+        padding: 10px 0 2px 0;
+        list-style-type: circle;
+        color: #CCC;
+        white-space: nowrap;
+    }
+    &:after {
+        pointer-events: none;
+        display: block;
+        position: absolute;
+        content: '';
+        background-image: linear-gradient(to right, transparent, white 90%);
+        width: 100px;
+        height: 100%;
+        right: 0;
+        top: 0;
+    }
 }
