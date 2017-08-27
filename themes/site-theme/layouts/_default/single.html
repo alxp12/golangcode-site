@@ -11,9 +11,17 @@
 
                 {{ if eq .Type "post" }}
                     <h2 class="headline">
-                        {{ .Date.Format "Jan 2, 2006" }}
-                        &nbsp;&middot;&nbsp; {{ if lt 1 .WordCount }}{{ .WordCount }} words{{ else }}{{ .WordCount }} word{{ end }}
-                        &nbsp;&middot;&nbsp; {{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute read{{ else }}{{ .ReadingTime }} minutes read{{ end }}
+                        <time datetime="{{ .Date.UTC.Format "2006-01-02T15:04:05-0700" }}">
+                            {{ .Date.Format "Jan 2, 2006" }}
+                        </time>
+                        &middot;
+                        <span class="word-count">
+                            {{ if lt 1 .WordCount }}{{ .WordCount }} words{{ else }}{{ .WordCount }} word{{ end }}
+                        </span>
+                        &middot;
+                        <span class="reading-time">
+                            {{ if eq 1 .ReadingTime }}{{ .ReadingTime }} minute read{{ else }}{{ .ReadingTime }} minutes read{{ end }}
+                        </span>
                         <span class="tags">
                             {{ with .Params.tags }}
                                 {{ if ge (len .) 1 }}
@@ -27,11 +35,11 @@
                 {{ end }}
             </header>
             {{ if .Site.Params.enableToc }}
-              {{ if .TableOfContents }}
-                <div id="toc">
-                  {{ .TableOfContents }}
-                </div>
-              {{ end }}
+                {{ if .TableOfContents }}
+                    <div id="toc">
+                        {{ .TableOfContents }}
+                    </div>
+                {{ end }}
             {{ end }}
             <section id="post-body">
                 {{ .Content }}
@@ -40,25 +48,38 @@
         </article>
 
         {{ if eq .Type "post" }}
-            <i class="fa fa-ellipsis-h page-separator" aria-hidden="true"></i>
-
-            <p>See something which isn't right? You can contribute to this page <a href="https://github.com/eddturtle/golangcode-site">on GitHub</a> or just let us know in the comments below. Thanks for reading!</p>
             
             {{ range first 1 (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
-              {{ $.Scratch.Set "has_related" true }}
+                {{ $.Scratch.Set "has_related" true }}
             {{ end }}
 
             {{ if $.Scratch.Get "has_related" }}
                 <div class="related-content">
-                    <h2>Related:</h2>
+                    <h2>Related Posts</h2>
                     <ul>
-                        {{ $num_to_show := .Site.Params.related_content_limit | default 5 }}
+                        {{ $num_to_show := .Site.Params.related_content_limit | default 3 }}
                             {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
-                            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> - {{ .Summary }}</li>
+                            <li>
+                                <a href="{{ .RelPermalink }}">
+                                    {{ .Title }}
+                                </a>
+                                &ndash; 
+                                <time datetime="{{ .Date.UTC.Format "2006-01-02T15:04:05-0700" }}">
+                                    {{ .Date.Format "Jan 2, 2006" }}
+                                </time>
+                                <br> 
+                                <small>{{ .Summary }}</small>
+                                <!-- <small>{{ slicestr .Summary 0 120 }}</small> -->
+                            </li>
                         {{ end }}
                     </ul>
                 </div>
             {{ end }}
+
+
+            <i class="fa fa-ellipsis-h page-separator" aria-hidden="true"></i>
+
+            <p>See something which isn't right? You can contribute to this page <a href="https://github.com/eddturtle/golangcode-site">on GitHub</a> or just let us know in the comments below. Thanks for reading!</p>
 
             {{ if .Site.Params.enableGithubIssuesTips }}
                 {{ partial "github-issues-tip.html" . }}
