@@ -124,9 +124,6 @@ pre code {
 
 .profile #avatar {
     display: inline-block;
-    /*width: 160px;*/
-    /*height: 80px;*/
-    /*border-radius: 50%;*/
     margin-bottom: 20px;
 }
 
@@ -157,6 +154,10 @@ div.pre-nav-header a {
     color: #777;
     padding: 10px;
     margin: 10px 0 0 10px;
+
+    &:hover {
+        color: #444;
+    }
 }
 
 nav.main-nav {
@@ -203,6 +204,7 @@ nav.main-nav a.cta {
   }
   .main-nav-home-link { display: none; }
 }
+
 @media (max-width: 424px) {
     nav.main-nav a.cta {
       display: none;
@@ -460,20 +462,8 @@ thead th, th {
 }
 
 img {
-    /*width: 100%;*/
     max-width: 100%;
     border-radius: 3px;
-}
-
-
-/* Made with Cactus Badge */
-
-#badge {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    height: 48px;
-    width: 48px;
 }
 
 
@@ -750,7 +740,7 @@ h2.month {
 @media screen and (max-width: 540px) {
     #wrapper {
         padding: 20px 18px 20px 18px;
-        font-size: .95em;
+        font-size: .9em;
     }
     #wrapper.home {
         padding: 0 20px 20px 20px;
