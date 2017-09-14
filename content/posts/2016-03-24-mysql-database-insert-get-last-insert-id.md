@@ -37,12 +37,12 @@ import (
 const (
     DB_USER    = ""
     DB_PASS    = ""
-    DB_TABLE   = ""
+    DB_NAME    = ""
     DB_CHARSET = "utf8"
 )
 
 func main() {
-    db, err := sql.Open("mysql", DB_USER+":"+DB_PASS+"@/"+DB_TABLE+"?charset="+DB_CHARSET)
+    db, err := sql.Open("mysql", DB_USER+":"+DB_PASS+"@/"+DB_NAME+"?charset="+DB_CHARSET)
     if err != nil {
         log.Fatal("Cannot open DB connection", err)
     }
