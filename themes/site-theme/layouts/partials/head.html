@@ -62,7 +62,7 @@
         "genre": "{{ range .Params.categories }}{{ . }}{{ end }}",  
         "url": "{{ .Permalink }}",
         "datePublished": "{{ (time .Date).Format "2006-01-02T15:04:05-0700" | safeHTML }}",
-        "description": "{{ .Description }}",
+        "description": "{{ .Summary }}",
         "author": {
             "@type": "Person",
             "name": "{{ .Site.Params.author }}"
