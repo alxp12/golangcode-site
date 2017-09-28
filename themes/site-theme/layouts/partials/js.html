@@ -1,3 +1,4 @@
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 <script>
    window.jQuery || document.write('<script src="{{ .Site.BaseURL }}js/jquery-3.2.1.min.js"><\/script>');
@@ -13,6 +14,20 @@
 <script src="{{ $.Site.BaseURL }}{{ . }}"></script>
 {{ end }}
 
-{{ if .Site.Params.enableGoogleAnalytics }}
-  {{ template "_internal/google_analytics.html" . }}
-{{ end }}
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-65854395-1','auto');ga('send','pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script type="text/javascript" async defer>
+    var disqus_shortname = '{{ .Site.Params.disqusShortname }}'; 
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
