@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Build Assets
-sass themes/site-theme/static/css/main.scss:themes/site-theme/static/css/style.css --style compressed
+sass themes/site-theme/static/css/main.scss:themes/site-theme/static/css/style.css --style compressed --sourcemap=none
 
 # Build Content
 hugo
