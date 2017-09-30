@@ -76,19 +76,30 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-h1 {
+h1, h2, h3, h4, h5 {
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 30px;
-    letter-spacing: -1px;
-    color: #222;
     font-weight: bold;
 }
 
+h1 {
+    font-size: 30px;
+    letter-spacing: -1px;
+    color: #222;
+}
+
 h2 {
-    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 22px;
     color: #444;
-    font-weight: bold;
+}
+
+h3 { font-size: 20px; }
+h4 { font-size: 16px; }
+h5 { font-size: 15px; }
+
+h6 {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 6px;
 }
 
 code {
@@ -371,28 +382,6 @@ em, i {
 
 h3, h4, h5 {
     color: #333;
-}
-
-h3 {
-    font-size: 20px;
-    font-weight: 400;
-}
-
-h4 {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-h5 {
-    font-size: 15px;
-    font-weight: bold;
-}
-
-h6 {
-    font-size: 13px;
-    font-weight: bold;
-    color: #666;
-    margin-bottom: 6px;
 }
 
 p {
@@ -965,6 +954,10 @@ a.symbol:hover {
     position: relative;
     padding: 40px 0 0 0;
 
+    h2, h3, h4 {
+        margin-bottom: 0;
+    }
+
     ul {
         overflow: hidden;
         padding-top: 10px;
@@ -992,7 +985,36 @@ a.symbol:hover {
         font-size: .95em;
     }
     small {
-        font-size: .95em;
+        font-size: .90em;
     }
 }
 
+.about-area {
+    border: 3px solid lighten(#5badf0, 15%);
+    border-radius: 2px;
+    background-color: lighten(#5badf0, 32%);
+    padding: 14px;
+    margin-bottom: 20px;
+    overflow: auto;
+
+    .twitter-follow-button {
+        float: right;
+        margin-left: 5px;
+    }
+
+    h2, h3, h4 {
+        margin: 4px 0;
+    }
+
+    img {
+        float: left;
+        width: 80px;
+        height: 80px;
+        border-radius: 999px;
+        margin-right: 15px;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+}

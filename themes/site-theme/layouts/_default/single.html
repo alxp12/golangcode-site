@@ -55,7 +55,7 @@
 
             {{ if $.Scratch.Get "has_related" }}
                 <div class="related-content">
-                    <h2>Related Posts</h2>
+                    <h3>Related Posts</h3>
                     <ul>
                         {{ $num_to_show := .Site.Params.related_content_limit | default 3 }}
                             {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
@@ -78,6 +78,18 @@
 
 
             <i class="fa fa-ellipsis-h page-separator" aria-hidden="true"></i>
+
+            <div class="about-area">
+                <img src="/images/author-edd-80.jpg" alt="Image of Author Edd Turtle" width="80" height="80">
+                <a href="https://twitter.com/eddturtle" class="twitter-follow-button" data-lang="en" data-dnt="true" data-show-count="false">
+                    Follow @EddTurtle
+                </a>
+                <a href="https://twitter.com/golangcode" class="twitter-follow-button" data-lang="en" data-dnt="true" data-show-count="false">
+                    Follow @golangcode
+                </a>
+                <h3>Author: Edd Turtle</h3>
+                <p>Edd is the Lead Developer at Hoowla, a prop-tech startup, where he spends much of his time working on production-ready Go and PHP code.</p>
+            </div>
 
             <p>See something which isn't right? You can contribute to this page <a href="https://github.com/eddturtle/golangcode-site">on GitHub</a> or just let us know in the comments below. Thanks for reading!</p>
 
