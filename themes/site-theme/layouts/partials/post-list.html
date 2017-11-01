@@ -5,10 +5,22 @@
             {{ if ne $url "search/" }}
                 <li>
                     <!-- <a href='{{ .Permalink }}'><aside class="dates">{{ .Date.Format "Jan 2" }}</aside></a> -->
-                    <a href='{{ .Permalink }}'>
-                        {{ .Title }} <h2>{{ .Description | markdownify }}</h2>
+                    <a href='{{ .Permalink }}' class="post-title">
+                        {{ .Title }} 
+                        <!-- <h2>{{ .Description | markdownify }}</h2> -->
                     </a>
                     <p>{{ .Summary }}</p>
+
+                    <span class="tags">
+                        {{ with .Params.tags }}
+                            {{ if ge (len .) 1 }}
+                                {{ range . }}
+                                    <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">#{{ . }}</a>
+                                {{ end }}
+                            {{ end }}
+                        {{ end}}
+                    </span>
+
                 </li>
             {{ end }}
         {{ end }}

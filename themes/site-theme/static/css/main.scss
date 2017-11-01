@@ -475,10 +475,20 @@ Post List
     padding-top: 20px;
 }
 
-#post-list a {
+#post-list a.post-title {
     color: #333;
     display: block;
     font: bold 24px/1.5em "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#post-list .tags a {
+    font-size: 12px;
+    opacity: .7;
+}
+
+#post-list p {
+    margin-top: 4px;
+    margin-bottom: 8px;
 }
 
 #post-list .dates {
