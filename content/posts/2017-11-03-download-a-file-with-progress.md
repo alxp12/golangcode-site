@@ -2,7 +2,7 @@
 title: Part 2) Download Large Files with Progress Reports
 author: Edd Turtle
 type: post
-date: 2017-11-02T20:05:00+00:00
+date: 2017-11-03T20:05:00+00:00
 url: /download-a-file-with-progress
 categories:
   - Uncategorized
