@@ -116,3 +116,7 @@ Download Started
 Downloading... 111 MB complete     
 Download Finished
 ```
+
+And here's what it looks like:
+
+![Example on the file downloader](/img/download-file-example.gif)
