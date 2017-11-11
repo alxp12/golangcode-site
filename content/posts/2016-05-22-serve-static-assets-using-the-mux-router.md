@@ -4,8 +4,6 @@ author: Edd Turtle
 type: post
 date: 2016-05-22T11:54:24+00:00
 url: /serve-static-assets-using-the-mux-router/
-rop_post_url_twitter:
-  - 'https://golangcode.com/serve-static-assets-using-the-mux-router/?utm_source=ReviveOldPost&utm_medium=social&utm_campaign=ReviveOldPost'
 categories:
   - Uncategorized
 tags:
@@ -24,7 +22,9 @@ tags:
   - static
 
 ---
-Using a router is great when passing off to functions to handle and return data. Often though, you just want to serve an entire directory. This is useful for images, styles and javascript. With this we&#8217;re using the <a href="https://github.com/gorilla/mux" target="_blank">Gorilla mux router</a> (&#8220;HTTP request multiplexer&#8221;) and setup a new route for the entire directory.
+Using a router is great when passing off incoming requests to functions to handle and return data. Often though, you just want to serve an entire directory and make everything inside it public. This is useful for images, styles and javascript. 
+
+In this example we're using the <a href="https://github.com/gorilla/mux" target="_blank">Gorilla mux router</a> (&#8220;HTTP request multiplexer&#8221;) and setup a new route for the entire directory. We're using `static` as the folder to serve which we pass to `FileServer()` as a new route on the router.
 
 ```go
 package main
@@ -59,4 +59,4 @@ func NewRouter() *mux.Router {
 
     return router
 }
-```go
+```
