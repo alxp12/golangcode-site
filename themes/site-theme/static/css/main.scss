@@ -164,10 +164,31 @@ div.pre-nav-header a {
     display: block;
     color: #777;
     padding: 10px;
-    margin: 10px 0 0 10px;
+    margin: 12px 0 0 70px;
+    vertical-align: middle;
 
     &:hover {
         color: #444;
+    }
+
+    img {
+        margin-top: -14px;
+        margin-left: -68px;
+        position: absolute;
+        height: 40px;
+    }
+}
+
+
+@media (max-width: 700px) {
+    div.pre-nav-header a {
+        margin: 12px 0 0 52px;
+
+        img {
+            margin-top: -10px;
+            margin-left: -52px;
+            height: 30px;
+        }
     }
 }
 
