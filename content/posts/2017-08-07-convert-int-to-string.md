@@ -16,6 +16,8 @@ tags:
 
 This is a short example on how to convert an integer number into a string. This is a common use case when printing to screen or working with the number as if it was a string. To do this we use the `strconv` package and the `Itoa` function.
 
+<!--more-->
+
 ```go
 package main
 

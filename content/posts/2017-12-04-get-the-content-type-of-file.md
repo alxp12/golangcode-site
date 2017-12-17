@@ -17,6 +17,8 @@ tags:
 
 We can use the `net/http` package to find the content type, or mime type, of a file. To do this, we open the file and read the first 512 bytes (as the `DetectContentType()` function only uses the first 512 bytes, there's no point in doing more than needed). This function will then return a mime type, like `application/json` or `image/jpg` for instance.
 
+<!--more-->
+
 ```go
 package main
 

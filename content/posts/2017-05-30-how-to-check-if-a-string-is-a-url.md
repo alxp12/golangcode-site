@@ -18,7 +18,9 @@ tags:
   - valid
 
 ---
-Here&#8217;s a little snippet to determine if a string is a well structured and considered valid url. This can be useful for pre-empting if a http call will work &#8211; or preventing failures from even occurring. In this snippet we&#8217;re using a function to tidy this logic and make it reusable.
+Here's a little snippet to determine if a string is a well structured and considered valid url. This can be useful for pre-empting if a http call will work - or preventing failures from even occurring. In this snippet we're using a function to tidy this logic and make it reusable.
+
+<!--more-->
 
 ```go
 package main

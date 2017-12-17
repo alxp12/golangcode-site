@@ -16,6 +16,8 @@ tags:
 
 Ever wanted to know the exact type name of the variable you're using? The `Printf` is capable of print exactly this information back out to you, like so:
 
+<!--more-->
+
 ```go
 package main
 

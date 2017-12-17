@@ -22,6 +22,8 @@ tags:
 ---
 The code below is used to unzip, or decompress, a zip archive file into it&#8217;s constituent files. Because there are likely to be multiple files, it will create the files within a folder (specified with the 2nd parameter).
 
+<!--more-->
+
 Also, try [this code if you are wanting to create zip files][1].
 
 This was based on code from <a href="https://stackoverflow.com/questions/20357223/easy-way-to-unzip-file-with-golang" target="_blank">here</a>.

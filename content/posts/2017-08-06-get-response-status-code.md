@@ -17,6 +17,8 @@ tags:
 
 When making http requests with Go it is almost always necessary to check the status code of the response which is returned. Generally if the status code is between 200 and 300 you should receive a successful response. But anything except a 200-300 status, we often need to handle.
 
+<!--more-->
+
 ```go
 package main
 

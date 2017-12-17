@@ -19,6 +19,8 @@ tags:
 ---
 Sleeping, or waiting in Go, is part of the [time package][1]. It&#8217;s a very simple process, all you need to do is specify the duration to sleep for, which in this case is a number followed by it&#8217;s unit, so `2 * time.Second` means 2 seconds.
 
+<!--more-->
+
 ```go
 package main
 

@@ -19,6 +19,8 @@ tags:
 ---
 Environment variables are a useful way to work with sensitive information (think passwords) which your code needs to work with, but don&#8217;t need to be checked into your code base. With Go, you can both get and set these details using the <a href="https://golang.org/pkg/os/#example_Getenv" target="_blank">os</a> library.
 
+<!--more-->
+
 ```go
 package main
 
