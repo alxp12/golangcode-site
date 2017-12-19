@@ -1,5 +1,5 @@
 ---
-title: "How Long Does a Function Take: Measuing Execution Time"
+title: "How Long Does a Function Take: Measuring Execution Time"
 author: Edd Turtle
 type: post
 date: 2017-12-07T20:00:00+00:00
