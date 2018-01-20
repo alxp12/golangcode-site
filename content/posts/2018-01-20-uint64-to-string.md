@@ -19,6 +19,8 @@ tags:
 
 We've already got a post on [converting an integer to a string](/converting-and-int-to-string/) but the process of converting a variable of type `uint64` to a string is a little different. For an int we can use `Itoa()`, but for an unsigned int 64 we can still use `strconv` but we can use the `FormatUint` function instead.
 
+<!--more-->
+
 ```go
 package main
 
