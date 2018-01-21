@@ -68,8 +68,7 @@
                                     {{ .Date.Format "Jan 2, 2006" }}
                                 </time>
                                 <br> 
-                                <small>{{ .Summary }}</small>
-                                <!-- <small>{{ slicestr .Summary 0 120 }}</small> -->
+                                <small>{{ .Summary | plainify | htmlUnescape }}</small>
                             </li>
                         {{ end }}
                     </ul>

@@ -9,7 +9,7 @@
                         {{ .Title }} 
                         <!-- <h2>{{ .Description | markdownify }}</h2> -->
                     </a>
-                    <p>{{ .Summary }}</p>
+                    <p>{{ .Summary | plainify | htmlUnescape }}</p>
 
                     <span class="tags">
                         {{ with .Params.tags }}
