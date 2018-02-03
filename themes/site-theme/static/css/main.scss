@@ -1,9 +1,11 @@
-
+/*!
+ * Golangcode.com ;)
+ */
 @import "reset";
 @import "font-awesome-min";
 @import "highlight";
 
-/* Icons */
+/* Icons */ 
 
 @font-face {
     font-family: 'icons';
@@ -209,12 +211,24 @@ nav.main-nav a {
     font-size: 13px;
     line-height: 1.35;
     border-radius: 3px;
+
+    &:hover {
+        color: darken(#5badf0, 20%);
+    }
+
+    &:focus {
+        color: darken(#5badf0, 30%);
+    }
 }
 
 nav.main-nav a.cta {
-    background: #5badf0;
+    background-color: #5badf0;
     color: #fff;
     margin-left: 12px;
+
+    &:hover {
+        background-color: darken(#5badf0, 10%); 
+    }
 }
 @media (max-width: 700px) {
   nav.main-nav {
@@ -284,11 +298,9 @@ p a {
 /*Transitions*/
 
 a, #post-nav a, #post-list a {
-    -webkit-transition: all 0.15s ease;
-    -moz-transition: all 0.15s ease;
-    -ms-transition: all 0.15s ease;
-    -o-transition: all 0.15s ease;
-    transition: all 0.15s ease;
+    -webkit-transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
+    -moz-transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
 }
 
 ul {
