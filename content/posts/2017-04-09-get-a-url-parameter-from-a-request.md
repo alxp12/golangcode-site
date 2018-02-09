@@ -1,5 +1,5 @@
 ---
-title: Get a URL parameter from a Request
+title: Get a URL Parameter from a Request
 author: Edd Turtle
 type: post
 date: 2017-04-09T10:55:07+00:00
@@ -53,3 +53,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
     log.Println("Url Param 'key' is: " + string(key))
 }
 ```
+
+Example when calling `localhost:8080/?key=hello%20golangcode.com`:
+
+![Showing Print of Url Param](/img/get-url-param.png)
