@@ -49,11 +49,10 @@ func main() {
     }
 
     fmt.Println("Unzipped:\n" + strings.Join(files, "\n"))
-
 }
 
-// Unzip will un-compress a zip archive,
-// moving all files and folders to an output directory
+// Unzip will decompress a zip archive, moving all files and folders 
+// within the zip file (parameter 1) to an output directory (parameter 2).
 func Unzip(src string, dest string) ([]string, error) {
 
     var filenames []string
@@ -84,12 +83,7 @@ func Unzip(src string, dest string) ([]string, error) {
         } else {
 
             // Make File
-            var fdir string
-            if lastIndex := strings.LastIndex(fpath, string(os.PathSeparator)); lastIndex > -1 {
-                fdir = fpath[:lastIndex]
-            }
-
-            if err = os.MkdirAll(fdir, os.ModePerm); err != nil {
+            if err = os.MkdirAll(filepath.Dir(fpath), os.ModePerm); err != nil {
                 return filenames, err
             }
 
