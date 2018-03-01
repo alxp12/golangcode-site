@@ -43,19 +43,18 @@ import (
 
 func main() {
 
-    files, err := Unzip("done.zip", "output")
-
+    files, err := Unzip("test.zip", "output")
     if err != nil {
         log.Fatal(err)
     }
 
-    fmt.Println("Unzipped: " + strings.Join(files, ", "))
+    fmt.Println("Unzipped:\n" + strings.Join(files, "\n"))
 
 }
 
 // Unzip will un-compress a zip archive,
 // moving all files and folders to an output directory
-func Unzip(src, dest string) ([]string, error) {
+func Unzip(src string, dest string) ([]string, error) {
 
     var filenames []string
 
@@ -90,19 +89,20 @@ func Unzip(src, dest string) ([]string, error) {
                 fdir = fpath[:lastIndex]
             }
 
-            err = os.MkdirAll(fdir, os.ModePerm)
-            if err != nil {
-                log.Fatal(err)
+            if err = os.MkdirAll(fdir, os.ModePerm); err != nil {
                 return filenames, err
             }
-            f, err := os.OpenFile(
-                fpath, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, f.Mode())
-            if err != nil {
-                return filenames, err
-            }
-            defer f.Close()
 
-            _, err = io.Copy(f, rc)
+            outFile, err := os.OpenFile(fpath, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, f.Mode())
+            if err != nil {
+                return filenames, err
+            }
+
+            _, err = io.Copy(outFile, rc)
+
+            // Close the file without defer to close before next iteration of loop
+            outFile.Close()
+
             if err != nil {
                 return filenames, err
             }
