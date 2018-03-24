@@ -1,18 +1,14 @@
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 <script>
-   window.jQuery || document.write('<script src="{{ .Site.BaseURL }}js/jquery-3.2.1.min.js"><\/script>');
+   window.jQuery || document.write('<script src="{{ .Site.BaseURL }}js/jquery-3.3.1.min.js"><\/script>');
 </script>
-
-<!-- <script src="{{ .Site.BaseURL }}js/main.js"></script> -->
 
 <script src="{{ .Site.BaseURL }}js/highlight.min.js"></script>
 <script src="{{ .Site.BaseURL }}js/highlight-go.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-{{ range .Site.Params.customJS }}
-<script src="{{ $.Site.BaseURL }}{{ . }}"></script>
-{{ end }}
+{{ range .Site.Params.customJS }}<script src="{{ $.Site.BaseURL }}{{ . }}"></script>{{ end }}
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
@@ -23,9 +19,7 @@
 
 <!-- Disqus: Blog Comments -->
 <script type="text/javascript" async defer>
-    var disqus_shortname = '{{ .Site.Params.disqusShortname }}'; 
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
+    var disqus_shortname = '{{ .Site.Params.disqusShortname }}';
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';

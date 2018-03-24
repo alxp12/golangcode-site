@@ -4,9 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
-    {{ .Hugo.Generator }}
     <title>{{ if .IsHome }}{{ .Title }} - {{ .Site.Params.bio }}{{ else }}{{ .Title }} &middot; {{ .Site.Title }}{{ end }}</title>
+    {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 
     <link rel="canonical" href="{{ .Permalink }}" />
     <link rel="dns-prefetch" href="//ajax.googleapis.com">
