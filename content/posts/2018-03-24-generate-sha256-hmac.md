@@ -51,4 +51,4 @@ func main() {
 
 Example:
 
-![Generate SHA256 signature](/img/sha256-hmac.png)
+![Generate SHA256 signature](/img/2018/sha256-hmac.png)
