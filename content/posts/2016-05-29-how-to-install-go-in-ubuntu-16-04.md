@@ -1,19 +1,13 @@
 ---
-title: How to Install Go in Ubuntu 16.04
+title: How to Install Go in Ubuntu 16.04/18.04
 author: Edd Turtle
 type: post
 date: 2016-05-29T17:37:45+00:00
 url: /how-to-install-go-in-ubuntu-16-04/
-rop_post_url_twitter:
-  - 'https://golangcode.com/how-to-install-go-in-ubuntu-16-04/?utm_source=ReviveOldPost&utm_medium=social&utm_campaign=ReviveOldPost'
-categories:
-  - Uncategorized
 tags:
   - 16.04
+  - 18.04
   - bash
-  - command
-  - go
-  - golang
   - install
   - local
   - path
@@ -21,25 +15,42 @@ tags:
   - ubuntu
   - vim
   - wget
-
 ---
-Download the latest version of Go. Ubuntu does come with a version of go in it&#8217;s apt listings but it won&#8217;t be as up-to-date as downloading it directly. Once downloaded we extract it into a folder we can work with.
+Ubuntu does come with a version of go (installable through `apt install go`) but it won't be as up-to-date as downloading it directly. And I know many gophers like using the latest version.
 
-    wget https://storage.googleapis.com/golang/go1.8.1.linux-amd64.tar.gz
+To being we'll start by downloading the latest version and once downloaded we extract it into a folder we can work with.
 
-    tar xvf go1.8.1.linux-amd64.tar.gz
+```bash
+wget https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
+```
 
-Once downloaded and extracted, move to the folder to `/usr/local` so we have it globally.
+```bash
+sudo tar -C /usr/local -xvf go1.10.2.linux-amd64.tar.gz
+```
 
-    sudo chown -R root:root ./go
-    sudo mv go /usr/local
-    
+We then need to add some bash variables so Go knows where our work/code directory is located. GOPATH should point to the folder where you'll be working in. This folder once setup should have your `src`, `bin` and `pkg` folders.
 
-We then need to add some bash variables so Go knows where our directory is located. GOPATH should point to the folder where you&#8217;ll be working in.
+```bash
+vim ~/.profile
+```
 
-    vim ~/.profile
+Add this to the bottom:
 
-    export GOPATH=$HOME/work
-    export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+```bash
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+```
 
-    source ~/.profile
+Press `:wq` to exit and run this to load your changes:
+
+```bash
+source ~/.profile
+```
+
+As the final test, if we run this:
+
+```bash
+go version
+```
+
+We should see `go version go1.10.2 linux/amd64`
