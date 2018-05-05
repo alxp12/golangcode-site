@@ -33,8 +33,8 @@
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta name="msapplication-TileImage" content="/favicon-144.png">
     <meta name="msapplication-config" content="/browserconfig.xml">
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|Lato:400,700|Merriweather:400,700"> 
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono|Lato:400,700|Merriweather:400,700">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/style.css?v={{ now.Unix }}">
 
     {{ if .Site.Params.enableRSS }}<link rel="alternate" type="application/rss+xml" href="{{ .Site.RSSLink }}" title="{{ .Site.Title }}" />{{ end }}
@@ -42,8 +42,8 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}" />
     <meta name="twitter:title" content="{{ .Title }}{{ if .IsHome }} - {{ .Site.Params.Tagline }}{{ else }} - {{ .Site.Title }}{{ end }}" />
-    <meta name="twitter:site" content="{{ .Site.Params.twitter }}" />
-    <meta name="twitter:creator" content="{{ .Site.Params.twitter }}" />
+    <meta name="twitter:site" content="@{{ .Site.Params.twitter }}" />
+    <meta name="twitter:creator" content="@{{ .Site.Params.twitter }}" />
 
     <meta property="og:locale" content="en_GB" />
     <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
@@ -53,13 +53,13 @@
     <meta property="og:site_name" content="{{ .Site.Title }}" />
     {{ range .Params.categories }}<meta property="article:section" content="{{ . }}" />{{ end }}
     {{ if isset .Params "date" }}<meta property="article:published_time" content="{{ time .Date }}" />{{ end }}
-    
+
     <script type="application/ld+json">
-    {{ if .IsPage }}{ 
-        "@context": "http://schema.org", 
+    {{ if .IsPage }}{
+        "@context": "http://schema.org",
         "@type": "BlogPosting",
         "headline": "{{ .Title }}",
-        "genre": "{{ range .Params.categories }}{{ . }}{{ end }}",  
+        "genre": "{{ range .Params.categories }}{{ . }}{{ end }}",
         "url": "{{ .Permalink }}",
         "datePublished": "{{ (time .Date).Format "2006-01-02T15:04:05-0700" | safeHTML }}",
         "description": "{{ .Summary }}",
@@ -68,10 +68,10 @@
             "name": "{{ .Site.Params.author }}"
         },
         "keywords": "{{ with .Params.tags }}{{ if ge (len .) 1 }}{{ range . }}{{ . }},{{ end }}{{ end }}{{ end}}"
-    }{{ else }}{ 
-        "@context": "http://schema.org", 
-        "@type": "WebSite", 
-        "url": "{{ .Permalink }}", 
+    }{{ else }}{
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "{{ .Permalink }}",
         "name": "{{ .Site.Title }}",
         "author": {
             "@type": "Person",
