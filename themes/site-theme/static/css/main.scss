@@ -5,7 +5,7 @@
 @import "font-awesome-min";
 @import "highlight";
 
-/* Icons */ 
+/* Icons */
 
 @font-face {
     font-family: 'icons';
@@ -181,7 +181,6 @@ div.pre-nav-header a {
     }
 }
 
-
 @media (max-width: 700px) {
     div.pre-nav-header a {
         margin: 12px 0 0 52px;
@@ -193,6 +192,33 @@ div.pre-nav-header a {
         }
     }
 }
+
+
+/* Ads */
+
+div.nav-ads-area {
+    width: 180px;
+    height: 150px;
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    background: repeating-linear-gradient(
+        45deg,
+        white,
+        white 10px,
+        #f7f7f7 10px,
+        #f7f7f7 20px
+    );
+}
+
+@media (max-width: 1200px) {
+    div.nav-ads-area {
+        display: none;
+    }
+}
+
+
+/* Main Nav */
 
 nav.main-nav {
     padding: 20px 20px 0;
@@ -227,7 +253,7 @@ nav.main-nav a.cta {
     margin-left: 12px;
 
     &:hover {
-        background-color: darken(#5badf0, 10%); 
+        background-color: darken(#5badf0, 10%);
     }
 }
 @media (max-width: 700px) {
@@ -389,7 +415,7 @@ em, i {
 
     time,
     .word-count,
-    .reading-time { 
+    .reading-time {
         padding-left: 5px;
         padding-right: 5px;
     }
