@@ -26,7 +26,6 @@ import (
     "fmt"
     "log"
     "net/http"
-    "strconv"
 )
 
 func main() {
@@ -36,7 +35,7 @@ func main() {
         log.Fatal(err)
     }
 
-    fmt.Println("HTTP Response Status: " + strconv.Itoa(resp.StatusCode))
+    fmt.Println("HTTP Response Status:", resp.StatusCode)
 
     if resp.StatusCode >= 200 && resp.StatusCode <= 299 {
         fmt.Println("HTTP Status OK!")
@@ -44,7 +43,9 @@ func main() {
         fmt.Println("Argh! Broken")
     }
 }
-
 ```
 
 StatusCode will be an integer, so in our example we convert it with `strconv` to a string before printing it to screen.
+
+
+![Get the status code of a http request](/img/2017/response-http-status.png)
