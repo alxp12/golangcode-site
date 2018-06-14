@@ -45,7 +45,4 @@ func main() {
 }
 ```
 
-StatusCode will be an integer, so in our example we convert it with `strconv` to a string before printing it to screen.
-
-
 ![Get the status code of a http request](/img/2017/response-http-status.png)
