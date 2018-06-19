@@ -3,7 +3,11 @@
 <div class="pre-nav-header">
 {{ if not .IsHome }}
 	<a href='{{ .Site.BaseURL }}'>
-    	<img id="avatar" class="2x" src="{{ .Site.BaseURL }}images/avatar-mini.jpg" height="50" width="75" />
+    	<img id="avatar" 
+    		 src="{{ .Site.BaseURL }}images/avatar-mini.jpg" 
+    		 srcset="{{ .Site.BaseURL }}images/avatar-mini@2x.jpg 2x"
+    		 height="47" 
+    		 width="70" />
 		Golang Code
 	</a>
 {{ end }}

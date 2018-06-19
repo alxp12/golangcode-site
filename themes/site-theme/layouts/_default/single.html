@@ -79,7 +79,11 @@
             <i class="fa fa-ellipsis-h page-separator" aria-hidden="true"></i>
 
             <div class="about-area">
-                <img src="/images/author-edd-80.jpg" alt="Image of Author Edd Turtle" width="80" height="80">
+                <img src="/images/author-edd-80.jpg" 
+                     srcset="/images/author-edd-80@2x.jpg 2x"
+                     alt="Image of Author Edd Turtle" 
+                     width="80" 
+                     height="80">
                 <a href="https://twitter.com/eddturtle" class="twitter-follow-button" data-lang="en" data-dnt="true" data-show-count="false">
                     Follow @EddTurtle
                 </a>
@@ -98,10 +102,6 @@
 
             {{ if .Site.Params.enableDisqus }}
                 {{ partial "disqus.html" . }}
-            {{ end }}
-
-            {{ if .Site.Params.enableDuoshuo }}
-                {{ partial "duoshuo.html" . }}
             {{ end }}
         {{ end }}
 
