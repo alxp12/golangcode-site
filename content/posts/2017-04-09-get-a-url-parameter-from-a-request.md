@@ -41,7 +41,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
     keys, ok := r.URL.Query()["key"]
     
-    if !ok || len(keys) < 1 {
+    if !ok || len(keys[0]) < 1 {
         log.Println("Url Param 'key' is missing")
         return
     }
