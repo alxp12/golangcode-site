@@ -16,7 +16,9 @@ tags:
   - decode
 ---
 
-The example below shows to how to encode and then subsequently decode a string using base 64. We use the `encoding/base64` package to do this, which takes in and returns a byte array into it's encode and decode methods.
+The example below shows to how to encode and then subsequently decode a string using [base 64](https://en.wikipedia.org/wiki/Base64). Doing this has many uses, one of which to safely encode byte data in structures like JSON.
+
+We use the [`encoding/base64`](https://golang.org/pkg/encoding/base64/) package to do this, which takes in and returns a byte array into it's `EncodeToString` and `DecodeString` methods.
 
 ```go
 package main
