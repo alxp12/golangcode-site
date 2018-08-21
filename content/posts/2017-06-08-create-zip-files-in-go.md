@@ -32,7 +32,6 @@ package main
 
 import (
     "archive/zip"
-    "fmt"
     "io"
     "log"
     "os"
@@ -45,24 +44,25 @@ func main() {
     output := "done.zip"
 
     err := ZipFiles(output, files)
-
     if err != nil {
         log.Fatal(err)
     }
 
-    fmt.Println("Zipped File: " + output)
+    log.Println("Zipped File: " + output)
 }
 
-// ZipFiles compresses one or many files into a single zip archive file
+// ZipFiles compresses one or many files into a single zip archive file.
+// Param 1: filename is the output zip file's name.
+// Param 2: files is a list of files to add to the zip.
 func ZipFiles(filename string, files []string) error {
 
-    newfile, err := os.Create(filename)
+    newZipFile, err := os.Create(filename)
     if err != nil {
         return err
     }
-    defer newfile.Close()
+    defer newZipFile.Close()
 
-    zipWriter := zip.NewWriter(newfile)
+    zipWriter := zip.NewWriter(newZipFile)
     defer zipWriter.Close()
 
     // Add files to zip
@@ -85,6 +85,10 @@ func ZipFiles(filename string, files []string) error {
             return err
         }
 
+        // Using FileInfoHeader() above only uses the basename of the file. If we want 
+        // to preserve the folder structure we can overwrite this with the full path.
+        header.Name = file
+
         // Change to deflate to gain better compression
         // see http://golang.org/pkg/archive/zip/#pkg-constants
         header.Method = zip.Deflate
@@ -93,13 +97,14 @@ func ZipFiles(filename string, files []string) error {
         if err != nil {
             return err
         }
-        _, err = io.Copy(writer, zipfile)
-        if err != nil {
+        if _, err = io.Copy(writer, zipfile); err != nil {
             return err
         }
     }
     return nil
 }
 ```
+
+![](/img/2017/create-zip.png)
 
  [1]: https://golangcode.com/unzip-files-in-go/
