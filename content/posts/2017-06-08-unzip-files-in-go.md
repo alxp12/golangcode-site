@@ -43,7 +43,7 @@ import (
 
 func main() {
 
-    files, err := Unzip("test.zip", "output")
+    files, err := Unzip("test.zip", "output-folder")
     if err != nil {
         log.Fatal(err)
     }
@@ -73,6 +73,12 @@ func Unzip(src string, dest string) ([]string, error) {
 
         // Store filename/path for returning and using later on
         fpath := filepath.Join(dest, f.Name)
+
+        // Check for ZipSlip. More Info: http://bit.ly/2MsjAWE
+        if !strings.HasPrefix(fpath, filepath.Clean(dest)+string(os.PathSeparator)) {
+            return filenames, fmt.Errorf("%s: illegal file path", fpath)
+        }
+
         filenames = append(filenames, fpath)
 
         if f.FileInfo().IsDir() {
@@ -106,5 +112,6 @@ func Unzip(src string, dest string) ([]string, error) {
     return filenames, nil
 }
 ```
+![](/img/2017/unzip-files.png)
 
  [1]: https://golangcode.com/create-zip-files-in-go/
