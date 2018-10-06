@@ -18,10 +18,11 @@ tags:
   - meta
 ---
 
-The example shows how to upload a local file onto an S3 bucket using the Go AWS SDK. It's quite straight forward once you have your session setup and
-we've create an `AddFileToS3` function which can be called multiple times when wanting to upload many files.
+This example shows how to upload a local file onto an S3 bucket using the [Go AWS SDK](https://aws.amazon.com/sdk-for-go/). Our first step is to step up the session using the `NewSession` function. We've then created an `AddFileToS3` function which can be called multiple times when wanting to upload many files.
 
-Within the `PutObjectInput` you an specify options when uploading the file and in our example we show how you can enable AES256 encryption on your files (when at rest).
+Within the `PutObjectInput` you can specify options when uploading the file and in our example we show how you can enable AES256 encryption on your files (when at rest).
+
+For this to work you'll need to have your AWS credentials setup (with AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY) and you'll need to fill in the S3_REGION and S3_BUCKET constants (More info on [bucket regions here](https://docs.aws.amazon.com/general/latest/gr/rande.html)).
 
 ```go
 package main

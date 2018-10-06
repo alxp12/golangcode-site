@@ -24,7 +24,7 @@ tags:
 ---
 Using a router is great when passing off incoming requests to functions to handle and return data. Often though, you just want to serve an entire directory and make everything inside it public. This is useful for images, styles and javascript. 
 
-In this example we're using the <a href="https://github.com/gorilla/mux" target="_blank">Gorilla mux router</a> (&#8220;HTTP request multiplexer&#8221;) and setup a new route for the entire directory. We're using `static` as the folder to serve which we pass to `FileServer()` as a new route on the router.
+In this example we're using the [Gorilla mux router](https://github.com/gorilla/mux) ("HTTP request multiplexer") and we have setup a new route for the entire directory. We're using `static` as the folder name to serve, which we pass to our `FileServer()` as a new route on the router.
 
 ```go
 package main
