@@ -11,6 +11,10 @@
 
 {{ range .Site.Params.customJS }}<script src="{{ $.Site.BaseURL }}{{ . }}"></script>{{ end }}
 
+{{ if eq .Title "About" }}
+<script src="{{ .Site.BaseURL }}js/about.js"></script>
+{{ end }}
+
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
     window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;

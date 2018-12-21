@@ -13,7 +13,7 @@
 {{ end }}
 </div>
 
-<nav class="main-nav">
+<nav class="main-nav" role="navigation">
 	{{ if not .IsHome }}
 		<a href='{{ .Site.BaseURL }}' class="main-nav-home-link">
 			<span class="arrow">←</span> {{ with .Site.Params.home }}{{ . }}{{ else }}Home{{ end }}
@@ -32,6 +32,6 @@
 	{{ end }}
 </nav>
 
-<div class="nav-ads-area">
+<div class="nav-ads-area" role="complementary">
 	<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CK7D623I&placement=golangcodecom" id="_carbonads_js"></script>
 </div>

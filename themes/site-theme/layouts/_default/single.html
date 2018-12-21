@@ -2,7 +2,7 @@
 <body>
    {{ partial "nav.html" . }}
 
-    <section id="wrapper">
+    <section id="wrapper" role="main">
         <article class="post">
             <header>
                 <h1>
@@ -44,6 +44,7 @@
             <section id="post-body">
                 {{ .Content }}
                 {{ if eq .Title "Search" }} {{ partial "search.html" }} {{ end }}
+                {{ if eq .Title "About" }} {{ partial "about.html" }} {{ end }}
             </section>
         </article>
 
@@ -116,5 +117,6 @@
     </section>
 
     {{ partial "js.html" . }}
+
 </body>
 </html>

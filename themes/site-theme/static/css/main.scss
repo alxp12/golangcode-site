@@ -1094,3 +1094,17 @@ a.symbol:hover {
         img { width: 1px; height: 1px; }
     }
 }
+
+
+// About Page
+
+.cmd-prompt {
+    width: 100%;
+    background: #2B2B2D;
+    border: 1px solid #1C1C1E;
+    font-family: "Fira Mono", monospace;
+    font-size: .8rem;
+    color: lighten(#CDD3D8, 5%);
+    padding: 1em;
+    height: 250px;
+}
