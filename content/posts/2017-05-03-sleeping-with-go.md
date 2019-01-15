@@ -15,6 +15,7 @@ tags:
   - wait
   - goroutine
   - pause
+meta_image: 2017/sleep-in-go.gif
 ---
 Sleeping, or waiting in Go, is part of the [time package][1]. It's a very simple process, all you need to do is specify the duration to sleep for, which in this case is a number followed by it's unit, so `2*time.Second` means 2 seconds. This will sleep the current goroutine so other go routines will continue to run.
 

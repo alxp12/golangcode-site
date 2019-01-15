@@ -15,6 +15,7 @@ tags:
   - stream
   - teereader
   - progress
+meta_image: download-file-example.gif
 ---
 
 We've already covered [basic downloading of files](/download-a-file-from-a-url/) - this post goes beyond that to create a more complete downloader by including progress reporting of the download. This means if you're pulling down large files you are able to see how the download's going.

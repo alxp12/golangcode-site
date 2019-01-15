@@ -16,6 +16,7 @@ tags:
   - bytes
   - write
   - unix
+meta_image: 2018/tmp-files.png
 ---
 
 We programmers often use temporary files and this example shows how we can create and write to one. We used the [`ioutil`](https://golang.org/pkg/io/ioutil/#TempFile) package which has functions for just this.

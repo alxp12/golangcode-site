@@ -14,6 +14,7 @@ tags:
   - reformat
   - unix
   - Ymd
+meta_image: 2018/parse-date.png
 ---
 
 We almost touched on this in our post about [unix time](/get-unix-time/) - but in this post we look at how to take an arbritary date in string format and converted it into a meaningful date in the format we want. This uses two important functions, `Parse` and `Format`, within the [time package](https://golang.org/pkg/time/).
@@ -51,4 +52,4 @@ func main() {
 }
 ```
 
-![](/img/2018/parse-date.png)
+![parsing dates example](/img/2018/parse-date.png)

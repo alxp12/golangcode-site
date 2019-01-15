@@ -14,6 +14,7 @@ tags:
   - execute
   - output
   - binary
+meta_image: 2018/run-system-command.png
 ---
 
 Within Go, like other languages, we have the ability to call external binaries. These allow us to do all sorts of things, but in our example we're just going to print out our go version by calling our copy (located in `/usr/local/go/bin` on my computer).

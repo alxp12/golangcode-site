@@ -14,6 +14,7 @@ tags:
   - key
   - secret
   - hmac
+meta_image: 2018/sha256-hmac.png
 ---
 
 Generating HMACs (Keyed-Hash Message Authentication Code) are often used as a way of proving data integrity and authenticity. They involve three integrals parts, the algorithm (in our case SHA256), the secret and the data. They a used mainly because data can be checked between two parties without the sharing of the secret.

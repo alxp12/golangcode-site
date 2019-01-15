@@ -18,7 +18,7 @@ tags:
   - slide
   - string
   - url
-
+meta_image: get-url-param.png
 ---
 Often it's important to read off the parameters sent through from the request. If it's a GET request these will lie within the url itself and can be read using the request's URL property. It's important to note that when getting the parameters in this way it will always return an array (or slice?).
 

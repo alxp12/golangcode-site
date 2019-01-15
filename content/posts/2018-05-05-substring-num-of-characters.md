@@ -12,6 +12,7 @@ tags:
   - characters
   - rune
   - convert
+meta_image: 2018/sub-string.png
 ---
 
 In the example below we are looking at how to take the first x number of characters from the start of a string. If we know a character we want to separate on, like a space, we can use `strings.Split()` instead. But for this we're looking to get the first 6 characters as a new string.

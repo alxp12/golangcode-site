@@ -15,6 +15,7 @@ tags:
   - finish
   - time
   - reference
+meta_image: 2018/waitgroup.png
 ---
 
 One of the (many) positives of Go is it's simple but powerful use of concurrency. By using keywords like `go` we're able to run functions in parallel. As easy as this is, we often need a way to run our next bit of code once all these goroutines have finished. That's where a `WaitGroup` comes in. 
