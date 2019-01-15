@@ -16,6 +16,7 @@ tags:
   - testing
   - assert
   - ioutil
+meta_image: 2019/test-without-log.png
 ---
 
 It's quite common to use the `log` package within your code to keep track of things which the end user might not need to see, like deprecated notices and warnings. These are great when they are in production and you are monitoring the logs - but they will show up during your tests.
