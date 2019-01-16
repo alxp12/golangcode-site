@@ -172,12 +172,15 @@ div.pre-nav-header a {
 
     &:hover {
         color: #444;
+
+        img { opacity: .9; }
     }
 
     img {
-        margin-top: -14px;
-        margin-left: -85px;
+        margin-top: -15px;
+        margin-left: -80px;
         position: absolute;
+        opacity: .7;
     }
 }
 
