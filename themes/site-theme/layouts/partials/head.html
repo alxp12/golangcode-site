@@ -55,14 +55,15 @@
         "headline": "{{ .Title }}",
         {{ if .Params.meta_image }}"image": "https://golangcode.com/img{{ .Params.meta_image | relURL }}",{{ end }}
         "genre": "{{ range .Params.categories }}{{ . }}{{ end }}",
+        "wordcount": {{ .WordCount }},
         "url": "{{ .Permalink }}",
         "datePublished": "{{ (time .Date).Format "2006-01-02T15:04:05-0700" | safeHTML }}",
-        "description": "{{ .Summary }}",
+        "description": "{{ replace .Summary "\n" " " }}",
         "author": {
             "@type": "Person",
             "name": "{{ .Site.Params.author }}"
         },
-        "keywords": "{{ with .Params.tags }}{{ if ge (len .) 1 }}{{ range . }}{{ . }},{{ end }}{{ end }}{{ end}}"
+        "keywords": "{{ delimit .Params.tags "," }}"
     }{{ else }}{
         "@context": "http://schema.org",
         "@type": "WebSite",
