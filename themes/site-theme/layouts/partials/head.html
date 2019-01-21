@@ -63,7 +63,7 @@
             "@type": "Person",
             "name": "{{ .Site.Params.author }}"
         },
-        "keywords": "{{ delimit .Params.tags "," }}"
+        "keywords": "{{ if .Params.tags }}{{ delimit .Params.tags "," }}{{ end }}"
     }{{ else }}{
         "@context": "http://schema.org",
         "@type": "WebSite",
