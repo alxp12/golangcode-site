@@ -249,6 +249,10 @@ nav.main-nav a {
     &:focus {
         color: darken(#5badf0, 30%);
     }
+
+    .fa-search {
+        transform: translateY(-2px);
+    }
 }
 
 nav.main-nav a.cta {

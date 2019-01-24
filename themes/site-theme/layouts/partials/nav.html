@@ -12,12 +12,16 @@
 <nav class="main-nav" role="navigation">
 	{{ if not .IsHome }}
 		<a href='{{ .Site.BaseURL }}' class="main-nav-home-link">
-			<span class="arrow">←</span> {{ with .Site.Params.home }}{{ . }}{{ else }}Home{{ end }}
+			<i class="fa fa-long-arrow-left"></i>&nbsp;
+			{{ with .Site.Params.home }}{{ . }}{{ else }}Home{{ end }}
 		</a>
 	{{ end }}
 	<a href='{{ .Site.BaseURL }}tags'>{{ with .Site.Params.tags }}{{ . }}{{ else }}Tags{{ end }}</a>
 	<a href='{{ .Site.BaseURL }}about'>{{ with .Site.Params.about }}{{ . }}{{ else }}About{{ end }}</a>
-	<a href='{{ .Site.BaseURL }}search'>Search</a>
+	<a href='{{ .Site.BaseURL }}search'>
+		<i class="fa fa-search"></i>&nbsp;
+		Search
+	</a>
 
 	{{ range $key, $val := .Site.Params.Links }}
 		<a href="{{ $val }}">{{ $key }}</a>
