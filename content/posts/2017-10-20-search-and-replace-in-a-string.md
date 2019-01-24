@@ -13,11 +13,12 @@ tags:
   - occurrance
   - escape
   - quotes
+meta_image: 2017/str-replace.png
 ---
 
-As programmers we often need to take a string and replace parts of it with something else. The code has three examples, first of which is a basic 'find all' and replace, the second changes only the first occurance of 'sound' and finally the third example demonstrates how to change a string containing quotes to use escaped quotes.
+As programmers we often need to take a string and replace parts of it with something else. The code below has three examples, first of which is a basic 'find all' and replace, the second changes only the first occurrence of 'sound' and finally the third example demonstrates how to change a string containing quotes to use escaped quotes. These are changed by using the 4th argument to define how many times to replace, with -1 being everytime.
 
-All this functionality is managed by the `strings` package and the `Replace` function.
+All this functionality is managed by the `strings` package and the `Replace` function ([view docs](https://golang.org/pkg/strings/#Replace)).
 
 ```go
 package main
@@ -28,25 +29,24 @@ import (
 )
 
 func main() {
-    // Example 1: Basic
+
+    // Example 1: Willkommen to GoLangCode.com
     myText := "Welcome to GoLangCode.com"
     myText = strings.Replace(myText, "Welcome", "Willkommen", -1)
-
-    // Output: Willkommen to GoLangCode.com
     fmt.Println(myText)
 
     // Example 2: Change first occurance
+    // Output: The car sounds sound
     myText = "The sound sounds sound"
     myText = strings.Replace(myText, "sound", "car", 1)
-
-    // Output: The car sounds sound
     fmt.Println(myText)
 
     // Example 3: Replacing quotes (double backslash needed)
+    // Output: I \'quote\' this text
     myText = "I 'quote' this text"
     myText = strings.Replace(myText, "'", "\\'", -1)
-
-    // Output: I \'quote\' this text
     fmt.Println(myText)
 }
 ```
+
+![search and replace within string in golang](/img/2017/str-replace.png)
