@@ -1,7 +1,11 @@
 <div id="social">
 	{{ range $key, $val := .Site.Social }}
     <a class="symbol" href="{{ $val }}" aria-label="{{ replace $key "-square" "" }} button">
-        <i class="fa fa-{{ $key }}"></i>
+    	{{ if eq $key "rss-square" }}
+        	<i class="fas fa-{{ $key }}"></i>
+        {{ else }}
+        	<i class="fab fa-{{ $key }}"></i>
+    	{{ end }}
     </a>
     {{ end }}
 </div>

@@ -12,14 +12,14 @@
 <nav class="main-nav" role="navigation">
 	{{ if not .IsHome }}
 		<a href='{{ .Site.BaseURL }}' class="main-nav-home-link">
-			<i class="fa fa-long-arrow-left"></i>&nbsp;
+			<i class="fas fa-long-arrow-alt-left"></i>&nbsp;
 			{{ with .Site.Params.home }}{{ . }}{{ else }}Home{{ end }}
 		</a>
 	{{ end }}
 	<a href='{{ .Site.BaseURL }}tags'>{{ with .Site.Params.tags }}{{ . }}{{ else }}Tags{{ end }}</a>
 	<a href='{{ .Site.BaseURL }}about'>{{ with .Site.Params.about }}{{ . }}{{ else }}About{{ end }}</a>
 	<a href='{{ .Site.BaseURL }}search'>
-		<i class="fa fa-search"></i>&nbsp;
+		<i class="fas fa-search"></i>&nbsp;
 		Search
 	</a>
 

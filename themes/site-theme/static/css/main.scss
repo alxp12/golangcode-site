@@ -2,61 +2,8 @@
  * Golangcode.com ;)
  */
 @import "reset";
-@import "font-awesome-min";
 @import "highlight";
 @import "carbonads";
-
-/* Icons */
-
-@font-face {
-    font-family: 'icons';
-    src: url('../fonts/icons.eot');
-    src: url('../fonts/icons.eot#iefix') format('embedded-opentype'), url('../fonts/icons.woff') format('woff'), url('../fonts/icons.ttf') format('truetype'), url('../fonts/icons.svg#icons') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-[class^="icon-"]:before, [class*=" icon-"]:before {
-    font-family: "icons";
-    font-style: normal;
-    font-weight: normal;
-    speak: none;
-    display: inline-block;
-    text-decoration: inherit;
-    text-align: center;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1em;
-}
-
-.icon-facebook:before {
-    content: '\e802';
-}
-
-.icon-facebook-squared:before {
-    content: '\e800';
-}
-
-.icon-twitter:before {
-    content: '\e801';
-}
-
-.icon-twitter-1:before {
-    content: '\e804';
-}
-
-.icon-facebook-circled:before {
-    content: '\e805';
-}
-
-.icon-twitter-circled:before {
-    content: '\e806';
-}
-
-.icon-facebook-rect:before {
-    content: '\e803';
-}
-
 
 /* Spacing */
 
@@ -333,7 +280,6 @@ p a {
 
 a, #post-nav a, #post-list a {
     -webkit-transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
-    -moz-transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
     transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
 }
 
@@ -664,7 +610,6 @@ Post List
 
 #post-nav span {
     -webkit-transition: all 0.1s linear;
-    -moz-transition: all 0.1s linear;
     -ms-transition: all 0.1s linear;
     -o-transition: all 0.1s linear;
     transition: all 0.1s linear;
@@ -919,6 +864,7 @@ a.symbol:hover {
 /**
  * Table of content
  */
+ /*
 #toc {
   line-height: 1em;
   font-size: .7em;
@@ -965,6 +911,7 @@ a.symbol:hover {
   padding: 2px 3px;
   font-weight: 100;
 }
+*/
 
 
 /**
