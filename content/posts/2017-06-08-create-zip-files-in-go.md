@@ -32,23 +32,21 @@ package main
 
 import (
     "archive/zip"
+    "fmt"
     "io"
-    "log"
     "os"
 )
 
 func main() {
 
-    // Files to Zip
+    // List of Files to Zip
     files := []string{"example.csv", "data.csv"}
     output := "done.zip"
 
-    err := ZipFiles(output, files)
-    if err != nil {
-        log.Fatal(err)
+    if err := ZipFiles(output, files); err != nil {
+        panic(err)
     }
-
-    log.Println("Zipped File: " + output)
+    fmt.Println("Zipped File:", output)
 }
 
 // ZipFiles compresses one or many files into a single zip archive file.
@@ -67,41 +65,46 @@ func ZipFiles(filename string, files []string) error {
 
     // Add files to zip
     for _, file := range files {
-
-        zipfile, err := os.Open(file)
-        if err != nil {
-            return err
-        }
-        defer zipfile.Close()
-
-        // Get the file information
-        info, err := zipfile.Stat()
-        if err != nil {
-            return err
-        }
-
-        header, err := zip.FileInfoHeader(info)
-        if err != nil {
-            return err
-        }
-
-        // Using FileInfoHeader() above only uses the basename of the file. If we want 
-        // to preserve the folder structure we can overwrite this with the full path.
-        header.Name = file
-
-        // Change to deflate to gain better compression
-        // see http://golang.org/pkg/archive/zip/#pkg-constants
-        header.Method = zip.Deflate
-
-        writer, err := zipWriter.CreateHeader(header)
-        if err != nil {
-            return err
-        }
-        if _, err = io.Copy(writer, zipfile); err != nil {
+        if err = AddFileToZip(zipWriter, file); err != nil {
             return err
         }
     }
     return nil
+}
+
+func AddFileToZip(zipWriter *zip.Writer, filename string) error {
+
+    fileToZip, err := os.Open(filename)
+    if err != nil {
+        return err
+    }
+    defer fileToZip.Close()
+
+    // Get the file information
+    info, err := fileToZip.Stat()
+    if err != nil {
+        return err
+    }
+
+    header, err := zip.FileInfoHeader(info)
+    if err != nil {
+        return err
+    }
+
+    // Using FileInfoHeader() above only uses the basename of the file. If we want
+    // to preserve the folder structure we can overwrite this with the full path.
+    header.Name = filename
+
+    // Change to deflate to gain better compression
+    // see http://golang.org/pkg/archive/zip/#pkg-constants
+    header.Method = zip.Deflate
+
+    writer, err := zipWriter.CreateHeader(header)
+    if err != nil {
+        return err
+    }
+    _, err = io.Copy(writer, fileToZip)
+    return err
 }
 ```
 
