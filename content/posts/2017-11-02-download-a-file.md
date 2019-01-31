@@ -23,6 +23,8 @@ This example shows how to download a file from the web on to your local machine.
 
 We also have an example of [downloading large files with progress reports](/download-a-file-with-progress).
 
+If you want to use the filename from the url, you can replace the `filepath` variable in DownloadFile with `path.Base(resp.Request.URL.String())` and import the `path` package.
+
 ```go
 package main
 
@@ -36,23 +38,14 @@ func main() {
 
     fileUrl := "https://golangcode.com/images/avatar.jpg"
 
-    err := DownloadFile("avatar.jpg", fileUrl)
-    if err != nil {
+    if err := DownloadFile("avatar.jpg", fileUrl); err != nil {
         panic(err)
     }
-
 }
 
 // DownloadFile will download a url to a local file. It's efficient because it will
 // write as it downloads and not load the whole file into memory.
 func DownloadFile(filepath string, url string) error {
-
-    // Create the file
-    out, err := os.Create(filepath)
-    if err != nil {
-        return err
-    }
-    defer out.Close()
 
     // Get the data
     resp, err := http.Get(url)
@@ -61,12 +54,15 @@ func DownloadFile(filepath string, url string) error {
     }
     defer resp.Body.Close()
 
-    // Write the body to file
-    _, err = io.Copy(out, resp.Body)
+    // Create the file
+    out, err := os.Create(filepath)
     if err != nil {
         return err
     }
+    defer out.Close()
 
-    return nil
+    // Write the body to file
+    _, err = io.Copy(out, resp.Body)
+    return err
 }
 ```
