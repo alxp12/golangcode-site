@@ -1,4 +1,6 @@
-![Logo](https://raw.githubusercontent.com/eddturtle/golangcode-site/master/static/favicon-76.png)
+
+<img src="https://golangcode.com/logo.svg" width="100">
+
 # Golang Code Site
 
 The website code to [golangcode.com](https://golangcode.com), built with Hugo.
