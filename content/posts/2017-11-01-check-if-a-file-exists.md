@@ -14,9 +14,11 @@ tags:
   - os
   - stat
   - isnotexists
+  - directory
+meta_image: 2017/check-file-exists.png
 ---
 
-In this basic example, we check to see if a file exists before interacting with it (otherwise something's not going to work as expected). We leverage the power of the `os` standard library and first use the `Stat()` function which although it's usually used to get information about a file, we're only looking at the errors. 
+In this basic example, we check to see if a file exists before interacting with it (otherwise something's not going to work as expected). We leverage the power of the `os` standard library and first use the `Stat()` function, which although it's usually used to get information about a file, we're only looking at the errors. 
 
 We can't just check for `err == nil` because any number of errors could be returned so we pass it to `IsNotExists()` to confirm that it's an error because the file does not exist.
 
@@ -29,11 +31,22 @@ import (
 )
 
 func main() {
-    filename := "example.txt"
-    if _, err := os.Stat(filename); os.IsNotExist(err) {
-        fmt.Println("File does not exist")
+    if fileExists("example.txt") {
+        fmt.Println("Example file exists")
     } else {
-        fmt.Println("File exists")
+        fmt.Println("Example file does not exist (or is a directory)")
     }
 }
+
+// fileExists checks if a file exists and is not a directory before we
+// try using it to prevent further errors.
+func fileExists(filename string) bool {
+    info, err := os.Stat(filename)
+    if os.IsNotExist(err) {
+        return false
+    }
+    return !info.IsDir()
+}
 ```
+
+![check if a file exists before using it](/img/2017/check-file-exists.png)
