@@ -32,6 +32,8 @@
 	{{ end }}
 </nav>
 
-<div class="nav-ads-area" role="complementary">
-	<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CK7D623I&placement=golangcodecom" id="_carbonads_js"></script>
-</div>
+{{ if ne .Type "post" }}
+    <div class="nav-ads-area other-pages" role="complementary">
+        <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CK7D623I&placement=golangcodecom" id="_carbonads_js"></script>
+    </div>
+{{ end }}

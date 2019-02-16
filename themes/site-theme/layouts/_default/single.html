@@ -36,13 +36,13 @@
                     </h2>
                 {{ end }}
             </header>
-            {{ if .Site.Params.enableToc }}
-                {{ if .TableOfContents }}
-                    <div id="toc">
-                        {{ .TableOfContents }}
-                    </div>
-                {{ end }}
+
+            {{ if eq .Type "post" }}
+                <div class="nav-ads-area single-page" role="complementary">
+                    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CK7D623I&placement=golangcodecom" id="_carbonads_js"></script>
+                </div>
             {{ end }}
+
             <section id="post-body">
                 {{ .Content }}
                 {{ if eq .Title "Search" }} {{ partial "search.html" }} {{ end }}
