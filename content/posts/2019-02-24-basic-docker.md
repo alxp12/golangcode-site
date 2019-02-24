@@ -3,7 +3,7 @@ title: "Basic Docker Setup for HTTP Server (using docker-compose)"
 author: Edd Turtle
 type: post
 date: 2019-02-24T13:00:00+00:00
-url: /basic
+url: /basic-docker-setup
 categories:
   - Uncategorized
 tags:
@@ -18,7 +18,7 @@ tags:
 meta_image: 2019/basic-docker.gif
 ---
 
-There are many guides on how to setup a docker container running Go, but the aim of this post is to provide a basic starting point, as often they become complicated and split across many files. It's also aimed at getting it running locally for development purposes, it might not be production ready.
+There are many guides on how to setup a docker container running Go, but the aim of this post is to provide a basic starting point - as often they become complicated and split across many files. It's also aimed at getting it running locally for development purposes quickly, so it might not be production ready.
 
 To begin with we create a basic http server, which just says `status: ok` on the root endpoint. We then create a `Dockerfile` and `docker-compose.yml` to define how the container should be built.
 
@@ -85,7 +85,7 @@ services:
      - "8080:8080"
 ```
 
-Once we're all setup, we can docker-compose to get us up and running. Note that this implementation doesn't have any form of live reload, so any changes made you'll need to stop the current container and rebuild on up.
+Once we're all setup, we can use docker-compose to get us up and running. Note that this implementation doesn't have any form of live reload, so any changes made you'll need to stop the current container and rebuild on up with the command below.
 
 ```bash
 docker-compose up --build
