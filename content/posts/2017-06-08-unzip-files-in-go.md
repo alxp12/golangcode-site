@@ -43,7 +43,7 @@ import (
 
 func main() {
 
-    files, err := Unzip("test.zip", "output-folder")
+    files, err := Unzip("done.zip", "output-folder")
     if err != nil {
         log.Fatal(err)
     }
@@ -51,7 +51,7 @@ func main() {
     fmt.Println("Unzipped:\n" + strings.Join(files, "\n"))
 }
 
-// Unzip will decompress a zip archive, moving all files and folders 
+// Unzip will decompress a zip archive, moving all files and folders
 // within the zip file (parameter 1) to an output directory (parameter 2).
 func Unzip(src string, dest string) ([]string, error) {
 
@@ -65,12 +65,6 @@ func Unzip(src string, dest string) ([]string, error) {
 
     for _, f := range r.File {
 
-        rc, err := f.Open()
-        if err != nil {
-            return filenames, err
-        }
-        defer rc.Close()
-
         // Store filename/path for returning and using later on
         fpath := filepath.Join(dest, f.Name)
 
@@ -82,36 +76,40 @@ func Unzip(src string, dest string) ([]string, error) {
         filenames = append(filenames, fpath)
 
         if f.FileInfo().IsDir() {
-
             // Make Folder
             os.MkdirAll(fpath, os.ModePerm)
+            continue
+        }
 
-        } else {
+        // Make File
+        if err = os.MkdirAll(filepath.Dir(fpath), os.ModePerm); err != nil {
+            return filenames, err
+        }
 
-            // Make File
-            if err = os.MkdirAll(filepath.Dir(fpath), os.ModePerm); err != nil {
-                return filenames, err
-            }
+        outFile, err := os.OpenFile(fpath, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, f.Mode())
+        if err != nil {
+            return filenames, err
+        }
 
-            outFile, err := os.OpenFile(fpath, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, f.Mode())
-            if err != nil {
-                return filenames, err
-            }
+        rc, err := f.Open()
+        if err != nil {
+            return filenames, err
+        }
 
-            _, err = io.Copy(outFile, rc)
+        _, err = io.Copy(outFile, rc)
 
-            // Close the file without defer to close before next iteration of loop
-            outFile.Close()
+        // Close the file without defer to close before next iteration of loop
+        outFile.Close()
+        rc.Close()
 
-            if err != nil {
-                return filenames, err
-            }
-
+        if err != nil {
+            return filenames, err
         }
     }
     return filenames, nil
 }
 ```
+
 ![](/img/2017/unzip-files.png)
 
  [1]: https://golangcode.com/create-zip-files-in-go/
