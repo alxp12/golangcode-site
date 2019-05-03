@@ -18,17 +18,17 @@ tags:
 ---
 Ubuntu does come with a version of go (installable through `apt install go`) but it won't be as up-to-date as downloading it directly. And I know many gophers like using the latest version.
 
-To being we'll start by downloading the latest version and once downloaded we extract it into a folder we can work with.
+To begin with we'll start by downloading the latest version and once downloaded we extract it into a folder we can work with. (You can find the [latest version here](https://golang.org/dl/)).
 
 ```bash
-wget https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz
+wget https://dl.google.com/go/go1.12.4.linux-amd64.tar.gz
 ```
 
 ```bash
-sudo tar -C /usr/local -xvf go1.10.2.linux-amd64.tar.gz
+sudo tar -C /usr/local -xvf go1.12.4.linux-amd64.tar.gz
 ```
 
-We then need to add some bash variables so Go knows where our work/code directory is located. GOPATH should point to the folder where you'll be working in. This folder once setup should have your `src`, `bin` and `pkg` folders.
+We then need to add some environment variables so Go knows where our work/code directory is located. GOPATH should point to the folder where you'll be working in. This folder once setup should have your `src`, `bin` and `pkg` folders.
 
 ```bash
 vim ~/.profile
@@ -53,4 +53,10 @@ As the final test, if we run this:
 go version
 ```
 
-We should see `go version go1.10.2 linux/amd64`
+We should see: `go version go1.12.4 linux/amd64`
+
+Finally, some clean-up
+
+```bash
+rm go1.12.4.linux-amd64.tar.gz
+```
