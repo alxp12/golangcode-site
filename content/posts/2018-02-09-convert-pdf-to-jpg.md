@@ -20,6 +20,14 @@ In the example below we use the `gographics/imagick` package as a wrapper to the
 
 This is a useful process for creating thumbnails or converting the files to show in the web browser. It is limited to the first page of the PDF at the moment though.
 
+Prerequisites for running under Ubuntu 18.04:
+
+```bash
+sudo apt install libmagic-dev libmagickwand-dev
+```
+
+The code:
+
 ```go
 package main
 
@@ -83,4 +91,10 @@ func ConvertPdfToJpg(pdfName string, imageName string) error {
     // Save File
     return mw.WriteImage(imageName)
 }
+```
+
+If you see an error like below, take a look at [this guide](https://alexvanderbist.com/posts/2018/fixing-imagick-error-unauthorized).
+
+```bash
+ERROR_POLICY: not authorized `TestPdf.pdf' @ error/constitute.c/ReadImage/412
 ```
