@@ -4,11 +4,9 @@ routes:
       headers:
          Cache-Control: "max-age=630720000, no-transform, public"
       gzip: true
-    - route: "^.+\\.(png|jpg)$"
+    - route: "^.+\\.(png|jpg|gif)$"
       headers:
          Cache-Control: "max-age=630720000, no-transform, public"
-      gzip: true
+      gzip: false
     - route: "^.+\\.(html|xml|json)$"
-      headers:
-         Cache-Control: "public, must-revalidate, proxy-revalidate, max-age=0"
       gzip: true  
