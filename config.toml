@@ -3,6 +3,9 @@ languageCode = "en-GB"
 title = "GolangCode"
 theme="site-theme"
 
+[outputs]
+	home = ["HTML", "RSS", "JSON"]
+
 [params]
 	name = "Golang Code"
 	description = "A Library of Go Snippets"

@@ -4,6 +4,23 @@
    window.jQuery || document.write('<script src="{{ .Site.BaseURL }}js/jquery-3.3.1.min.js"><\/script>');
 </script>
 
+<script>
+$( function() { 
+    $('.js-nav-search-button').click(function() { 
+        var area = $('.search-form');
+        if (area.length > 0) {
+            area.toggleClass('hidden').find('input[type="text"]').focus();
+            return false;
+        }
+    });
+});
+</script>
+{{ if eq .Title "Search" }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
+    <script src="{{ "js/search.js" | absURL }}"></script>
+{{ end }}
+
 <script src="{{ .Site.BaseURL }}js/highlight.min.js"></script>
 <script src="{{ .Site.BaseURL }}js/highlight-go.min.js"></script>
 <script src="{{ .Site.BaseURL }}js/highlight-bash.min.js"></script>

@@ -3,11 +3,18 @@
    {{ partial "nav.html" . }}
 
     <section id="wrapper" role="main">
+
+        <!-- Search Form -->
+        {{ partial "search-form.html" . }}
+
         <article class="post">
             <header>
-                <h1>
-                    {{ .Title }}
-                </h1>
+
+                {{ if ne .Title "Search" }}
+                    <!-- Page Title Shown on all Pages -->
+                    <h1>{{ .Title }}</h1>
+                {{ end }}
+
 
                 {{ if eq .Type "post" }}
                     <h2 class="headline">

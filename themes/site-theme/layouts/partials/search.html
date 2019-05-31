@@ -1,13 +1,14 @@
-<form action="https://www.google.co.uk" id="cse-search-box">
-  <div>
-    <input type="hidden" name="cx" value="partner-pub-5902223822884103:8484502407" />
-    <input type="hidden" name="ie" value="UTF-8" />
-    <input type="text" name="q" size="55" autofocus required />
-    <input type="submit" name="sa" value="Search" />
-  </div>
-</form>
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
-<script type="text/javascript" src="http://www.google.com/cse/t13n?form=cse-search-box&t13n_langs=en"></script>
 
-<script type="text/javascript" src="http://www.google.co.uk/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+<div id="search-results"></div>
+
+<!-- this template is sucked in by search.js and appended to the search-results div above. So editing here will adjust style -->
+<script id="search-result-template" type="text/x-js-template">
+    <div id="summary-${key}" class="search-block">
+        <h3><a href="${link}">${title}</a></h3>
+        ${ isset img }<div class="search-feature-image"><img src="/img/${img}" alt=""></div>${ end }
+        <div class="search-content-block">
+            <p>${snippet}</p>
+        </div>
+        ${ isset tags }<small>${tags}</small>${ end }
+    </div>
+</script>

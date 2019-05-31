@@ -18,7 +18,7 @@
 	{{ end }}
 	<a href='{{ .Site.BaseURL }}tags'>{{ with .Site.Params.tags }}{{ . }}{{ else }}Tags{{ end }}</a>
 	<a href='{{ .Site.BaseURL }}about'>{{ with .Site.Params.about }}{{ . }}{{ else }}About{{ end }}</a>
-	<a href='{{ .Site.BaseURL }}search'>
+	<a href='{{ .Site.BaseURL }}search' class="js-nav-search-button">
 		<i class="fas fa-search"></i>&nbsp;
 		Search
 	</a>

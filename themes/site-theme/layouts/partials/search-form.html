@@ -1,0 +1,7 @@
+<form action="{{ "search" | absURL }}" class="search-form{{ if ne .Title "Search" }} hidden{{ end }}">
+    <input type="text" 
+           id="search-query" 
+           name="s" 
+           placeholder="e.g. Mutex, Install Go, For Loops...">
+    <button>Search</button>
+</form>
