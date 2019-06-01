@@ -36,7 +36,7 @@ function executeSearch(searchQuery){
     if(result.length > 0){
       populateResults(result);
     }else{
-      $('#search-results').append("<p>No matches found</p>");
+      $('.search-no-results').show();
     }
   });
 }
@@ -76,7 +76,7 @@ function populateResults(result){
         title: value.item.title,
         img: (key < 3 ? value.item.img : null),
         link: value.item.permalink,
-        tags: value.item.tags,
+        tags: value.item.tags.join(', '),
         categories: value.item.categories,
         snippet: snippet
     });

@@ -9,7 +9,19 @@ $( function() {
     $('.js-nav-search-button').click(function() { 
         var area = $('.search-form');
         if (area.length > 0) {
-            area.toggleClass('hidden').find('input[type="text"]').focus();
+            if (area.hasClass('hidden')) {
+                // Open
+                // Show tmp white bg
+                $('.search-form-bg').show().fadeOut(1500);
+                // Slide down form + focus
+                area.removeClass('hidden').hide().slideDown('fast', function() {
+                    area.find('input[type="text"]').focus();
+                });
+            } else {
+                // Close
+                $('.search-form-bg').hide();
+                area.addClass('hidden');
+            }
             return false;
         }
     });
