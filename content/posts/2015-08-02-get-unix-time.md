@@ -14,7 +14,7 @@ tags:
   - strconv
   - time
   - unix
-
+meta_image: 2015/unix-time.png
 ---
 This is a simple way to get the current system time in the unix format and in this example we're just printing the result to screen. This is all accessible from the [`time`](https://golang.org/pkg/time/) package. The `Unix()` function will actually return a type of `Time` (which is the stored time to the nanosecond) - but this can be converted into an int or formatted into a readable string.
 

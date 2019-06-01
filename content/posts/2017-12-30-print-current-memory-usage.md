@@ -16,6 +16,7 @@ tags:
   - heap
   - alloc
   - memstats
+meta_image: print-memory-usage.gif
 ---
 
 The program below is designed to print out the current state of how much memory is being used, how much has been used and how much the system has reserved. You only really need the `PrintMemUsage()` function to do this, the rest of the `main()` is there to illustrate it working (with a gif showing this at the end of this post).

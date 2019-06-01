@@ -18,6 +18,7 @@ tags:
   - serve
   - terminal
   - time
+meta_image: 2015/logger-handler.png
 ---
 
 If you're working with the `net/http` package, you can easily create a router to pass different http calls to different functions. 

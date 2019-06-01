@@ -15,6 +15,7 @@ tags:
   - goroutine
   - channel
   - ctrl+c
+meta_image: handle-ctrl-c-example.gif
 ---
 
 When running a Go program in the terminal, your program could receive a signal interrupt from the OS for any number of reasons. One of which is if the user presses `Ctrl+C` on their keyboard (or whatever your operating system/terminal is set to). We can execute some code when this interrupt is received, mainly to clean up and reset what we were working on.

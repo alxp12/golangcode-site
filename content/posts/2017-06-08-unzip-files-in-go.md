@@ -18,7 +18,7 @@ tags:
   - uncompress
   - unzip
   - zip
-
+meta_image: 2017/unzip-files.png
 ---
 The code below is used to unzip, or decompress, a zip archive file into it&#8217;s constituent files. Because there are likely to be multiple files, it will create the files within a folder (specified with the 2nd parameter).
 

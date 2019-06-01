@@ -17,7 +17,7 @@ tags:
   - writer
   - zip
   - zipping
-
+meta_image: 2017/create-zip.png
 ---
 The code below shows how you can create a zip archive after being passed a number of files to compress. This is useful for both bundling files together and creating smaller file sizes.
 

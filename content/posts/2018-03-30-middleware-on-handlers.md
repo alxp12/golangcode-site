@@ -16,6 +16,7 @@ tags:
   - api
   - key
   - handler
+meta_image: 2018/middleware-auth.png
 ---
 
 Middleware is a term used in many different ways within software development, but we're referring to it as a way to wrap requests and responses in simple abstracted functions which can be applied to some routes easily.

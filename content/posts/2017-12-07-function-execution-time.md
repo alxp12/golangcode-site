@@ -13,6 +13,7 @@ tags:
   - duration
   - since
   - defer
+meta_image: function-execution-time.gif
 ---
 
 We often need to measure execution time in programming, as it helps us understand the programs we're working with and knowing where potential bottlenecks are occurring.
