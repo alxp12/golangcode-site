@@ -18,11 +18,20 @@ var fuseOptions = {
 
 
 var searchQuery = param("s");
-if(searchQuery){
-  $("#search-query").val(searchQuery);
-  executeSearch(searchQuery);
-}else {
-  $('#search-results').hide(); // append("<p>Please enter a word or phrase above</p>");
+if (searchQuery) {
+    $("#search-query").val(searchQuery);
+    executeSearch(searchQuery);
+    // Log
+    if (typeof ga === 'function') {
+        ga('send', { 
+            hitType: 'event', 
+            eventCategory: 'search', 
+            eventAction: 'query',
+            eventLabel: searchQuery,
+        });
+    }
+} else {
+    $('#search-results').hide();
 }
 
 
@@ -32,7 +41,6 @@ function executeSearch(searchQuery){
     var pages = data;
     var fuse = new Fuse(pages, fuseOptions);
     var result = fuse.search(searchQuery);
-    console.log({"matches":result});
     if(result.length > 0){
       populateResults(result);
     }else{

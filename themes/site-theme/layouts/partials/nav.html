@@ -28,7 +28,9 @@
 	{{ end }}
 
 	{{ if .Site.Params.enableRSS }}
-	<a class="cta" href="{{ .Site.RSSLink }}">{{ with .Site.Params.subscribe }}{{ . }}{{ else }}Subscribe{{ end }}</a>
+		<a class="cta js-nav-subscribe-button" href="{{ .Site.RSSLink }}">
+			{{ with .Site.Params.subscribe }}{{ . }}{{ else }}Subscribe{{ end }}
+		</a>
 	{{ end }}
 </nav>
 

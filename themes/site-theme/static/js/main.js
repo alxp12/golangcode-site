@@ -1,36 +1,88 @@
-// To make images retina, add a class "2x" to the img element
-// and add a <image-name>@2x.png image. Assumes jquery is loaded.
- 
-function isRetina() {
-	var mediaQuery = "(-webkit-min-device-pixel-ratio: 1.5),\
-					  (min--moz-device-pixel-ratio: 1.5),\
-					  (-o-min-device-pixel-ratio: 3/2),\
-					  (min-resolution: 1.5dppx)";
- 
-	if (window.devicePixelRatio > 1)
-		return true;
- 
-	if (window.matchMedia && window.matchMedia(mediaQuery).matches)
-		return true;
- 
-	return false;
-};
- 
- 
-function retina() {
-	
-	if (!isRetina())
-		return;
-	
-	$("img.2x").map(function(i, image) {
-		
-		var path = $(image).attr("src");
-		
-		path = path.replace(".png", "@2x.png");
-		path = path.replace(".jpg", "@2x.jpg");
-		
-		$(image).attr("src", path);
-	});
-};
- 
-$(document).ready(retina);
+$(function() { 
+
+
+    // =============================
+    // SEARCH
+    // =============================
+
+    $('.js-nav-search-button').click(function() { 
+        if (typeof ga === 'function') {
+            ga('send', 'event', { eventCategory: 'search', eventAction: 'click' });
+        }
+        var area = $('.search-form');
+        if (area.length > 0) {
+            if (area.hasClass('hidden')) {
+                // Open
+                $('.search-form-bg').show().fadeOut(1500);
+                // Slide down form + focus
+                area.removeClass('hidden').hide().slideDown('fast', function() {
+                    area.find('input[type="text"]').focus();
+                });
+            } else {
+                // Close
+                $('.search-form-bg').hide();
+                area.addClass('hidden');
+            }
+            return false;
+        }
+    });
+
+
+    // =============================
+    // SUBSCRIBE
+    // =============================
+
+    $('.js-nav-subscribe-button').click( function() {
+        if (typeof ga === 'function') {
+            ga('send', 'event', {
+                eventCategory: 'subscribe',
+                eventAction: 'click',
+                transport: 'beacon'
+            });
+        }
+    });
+
+
+    // =============================
+    // ABOUT
+    // =============================
+
+    var prompt = $('#cmd-prompt');
+    if (prompt.length) {
+        var cmds = [
+            $('template#cmd-1').html().trim(),
+            $('template#cmd-2').html().trim().replace('&gt;', '>').replace('&gt;', '>'),
+            $('template#cmd-3').html().trim(),
+            $('template#cmd-4').html().trim(),
+            $('template#cmd-5').html().trim(),
+        ];
+
+        setTimeout( function() {
+            prompt.val(cmds[0]);
+
+            setTimeout( function() {
+                prompt.val(prompt.val() + ' ' + cmds[1]);
+
+                setTimeout( function() {
+                    prompt.val(prompt.val() + ' ' + cmds[2]); // clear
+
+                    setTimeout( function() {
+                        prompt.val('$');
+
+                        setTimeout( function() {
+                            prompt.val(prompt.val() + ' ' + cmds[3]);
+
+                            setTimeout( function() {
+                                prompt.val(prompt.val() + "\n\n" + cmds[4] + ' ');
+                                prompt.scrollTop(prompt[0].scrollHeight);
+                                prompt.focus();
+                            }, 700);
+                        }, 700);
+                    }, 700);
+                }, 1500);
+            }, 1500);
+        }, 600);
+    }
+
+
+});

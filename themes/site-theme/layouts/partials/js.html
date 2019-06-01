@@ -1,53 +1,28 @@
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
 <script>
    window.jQuery || document.write('<script src="{{ .Site.BaseURL }}js/jquery-3.4.1.min.js"><\/script>');
 </script>
 
-<script>
-$( function() { 
-    $('.js-nav-search-button').click(function() { 
-        var area = $('.search-form');
-        if (area.length > 0) {
-            if (area.hasClass('hidden')) {
-                // Open
-                // Show tmp white bg
-                $('.search-form-bg').show().fadeOut(1500);
-                // Slide down form + focus
-                area.removeClass('hidden').hide().slideDown('fast', function() {
-                    area.find('input[type="text"]').focus();
-                });
-            } else {
-                // Close
-                $('.search-form-bg').hide();
-                area.addClass('hidden');
-            }
-            return false;
-        }
-    });
-});
-</script>
-{{ if eq .Title "Search" }}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
-    <script src="{{ "js/search.js" | absURL }}"></script>
-{{ end }}
-
-<script src="{{ .Site.BaseURL }}js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
-{{ range .Site.Params.customJS }}<script src="{{ $.Site.BaseURL }}{{ . }}"></script>{{ end }}
-
-{{ if eq .Title "About" }}
-<script src="{{ .Site.BaseURL }}js/about.js"></script>
-{{ end }}
-
-<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<!-- Important to have before scripts, as ga() is used in scripts -->
 <script>
     window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
     ga('create','UA-65854395-1','auto');ga('send','pageview')
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+{{ if eq .Title "Search" }}
+    <script src="{{ .Site.BaseURL }}js/fuse-3.4.5.min.js"></script>
+    <script src="{{ .Site.BaseURL }}js/jquery.mark-8.11.1.min.js"></script>
+    <script src="{{ "js/search.js" | absURL }}"></script>
+{{ end }}
+
+<script src="{{ .Site.BaseURL }}js/main.js?v={{ now.Unix }}" async defer></script>
+
+<script src="{{ .Site.BaseURL }}js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+{{ range .Site.Params.customJS }}<script src="{{ $.Site.BaseURL }}{{ . }}"></script>{{ end }}
 
 <!-- Disqus: Blog Comments -->
 <script type="text/javascript" async defer>
@@ -62,4 +37,4 @@ $( function() {
 </script>
 
 <!-- Twitter: Follow Button -->
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script src="https://platform.twitter.com/widgets.js" integrity="sha384-ILQgAce+pOxPyGn2fzN0iO9+oFp9lbQX9ona852UDKk2CHtBlIYPRyRPIrpMlseW" crossorigin="anonymous" async defer charset="utf-8"></script>
