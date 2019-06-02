@@ -85,4 +85,19 @@ $(function() {
     }
 
 
+    // =============================
+    // DONATE
+    // =============================
+
+    $('.dontate-button').submit( function() {
+        if (typeof ga === 'function') {
+            ga('send', 'event', {
+                eventCategory: 'donate',
+                eventAction: 'submit',
+                transport: 'beacon'
+            });
+        }
+    })
+
+
 });
