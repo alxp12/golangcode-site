@@ -11,6 +11,12 @@ $(function() {
         }
         var area = $('.search-form');
         if (area.length > 0) {
+            // Early return for pages with search form already open
+            // e.g. home page and search page itself
+            if (area.hasClass('non-close')) {
+                area.find('input[type="text"]').focus();
+                return false;
+            }
             if (area.hasClass('hidden')) {
                 // Open
                 $('.search-form-bg').show().fadeOut(1500);
