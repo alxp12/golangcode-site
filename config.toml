@@ -1,5 +1,6 @@
 baseurl = "https://golangcode.com/"
 languageCode = "en-GB"
+ignoreFiles = [ "\\.scss" ]
 title = "GolangCode"
 theme="site-theme"
 
