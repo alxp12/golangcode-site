@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-echo "- Building Assets (SASS)"
-sass themes/site-theme/static/css/main.scss:themes/site-theme/static/css/style.css --style compressed --no-source-map
+# echo "- Building Assets (SASS)"
+# sass themes/site-theme/static/css/main.scss:themes/site-theme/static/css/style.css --style compressed --no-source-map
 
 echo "- Running Hugo"
 hugo --quiet
