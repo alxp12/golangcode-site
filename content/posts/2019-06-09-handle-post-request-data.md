@@ -15,7 +15,7 @@ tags:
   - param
   - contenttype
   - parse
-meta_image: x
+meta_image: 2019/post-params.png
 ---
 This is an overview post (pun intended) about how to work with post request data sent to an endpoint via HTTP. This is slightly different to data stored in query parameters sent in the url and has to be handled differently.
 
