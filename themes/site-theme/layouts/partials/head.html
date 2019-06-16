@@ -58,7 +58,7 @@
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         "headline": {{ .Title }},
-        {{ if .Params.meta_image }}"image": "https://golangcode.com/img{{ .Params.meta_image | relURL }}",{{ end }}
+        {{ if .Params.meta_image }}"image": {{ .Params.meta_image | absURL }},{{ end }}
         "genre": "{{ range .Params.categories }}{{ . }}{{ end }}",
         "wordcount": {{ .WordCount }},
         "url": {{ .Permalink }},
@@ -68,7 +68,17 @@
             "@type": "Person",
             "name": {{ .Site.Params.author }}
         },
-        "keywords": {{ if .Params.tags }}{{ delimit .Params.tags "," }}{{ end }}
+        "keywords": {{ if .Params.tags }}{{ delimit .Params.tags "," }}{{else}}""{{ end }},
+        "publisher": {
+            "@type": "Organization",
+            "name": "GolangCode.com",
+            "logo": {
+                "@type": "ImageObject",
+                "width": "256",
+                "height": "256",
+                "url": "https://golangcode.com/fav/android-chrome-256x256.png"
+            }
+        }
     }{{ else }}{
         "@context": "http://schema.org",
         "@type": "WebSite",
