@@ -19,7 +19,7 @@ meta_image: 2019/post-params.png
 ---
 This is an overview post (pun intended) about how to work with post request data sent to an endpoint via HTTP. This is slightly different to data stored in query parameters sent in the url and has to be handled differently.
 
-Becasue we're using a http server, we can parse the request using `ParseForm()` and then use the data from the map.
+Because we're using a http server, we can parse the request (in variable `r`) using `ParseForm()` and then use the data from the map generated.
 
 This will only work with data sent with a Content-Type header of `application/x-www-form-urlencode` or `multipart/form-data`. JSON is handled in a [different way](/json-decode-into-objects/).
 
