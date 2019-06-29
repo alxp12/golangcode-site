@@ -523,6 +523,13 @@ Post List
     color: #333;
     display: block;
     font: bold 24px/1.5em $sans-stack;
+    // transition: none;
+}
+#post-list a.post-title:hover {
+    // background: linear-gradient(to right, lighten(#5badf0, 10%), darken(#5badf0, 30%));
+    // color: transparent;
+    // -webkit-background-clip: text;
+    color: #2c96ec;
 }
 
 #post-list .tags a {
