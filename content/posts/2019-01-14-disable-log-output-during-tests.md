@@ -32,13 +32,14 @@ import (
   "testing"
   "log"
   "io/ioutil"
+  "os"
 )
 
 // SETUP
 // Importantly you need to call Run() once you've done what you need
 func TestMain(m *testing.M) {
   log.SetOutput(ioutil.Discard)
-  m.Run()
+  os.Exit(m.Run())
 }
 
 func TestDoAndLogSomething(t *testing.T) {
