@@ -12,61 +12,35 @@ theme="site-theme"
 	description = "A Library of Go Snippets"
 	bio = "A Library of Go Snippets"
 	author = "Edd Turtle"
-	# Enter optionally your twitter account
 	twitter = "golangcode"
 	enableRSS = true
-
-	# Disqus comment
-	disqusShortname = "golangcode"
-	# Disable disqus comments by set `enableDisqus = "false"`
 	enableDisqus = true
+	disqusShortname = "golangcode"
 
-	# Duoshuo comment
-	duoshuoShortname = "your_duoshuo_short_name"
-	# Disable duoshuo comments by set `enableDuoshuo = "false"`
-	enableDuoshuo = false
-
-	enableGithubIssuesTips = false
-
-	# Enable googleAnalytics
-	enableGoogleAnalytics = true
-	GoogleAnalytics = 'UA-65854395-1'
-
-	# Add custom assets with their paths relative to the static folder
-	customCSS = []
-	customJS  = []
-
-	# The variables below are optionally too and can be used to
-	# translate or customize each string of the theme.
-
-	# Navigation links
-	home = ""
-	about = ""
-	archive = ""
-	subscribe = ""
-	tags = ""
-	# Pagination links
-	olderPosts = ""
-	newerPosts = ""
-	readMore = ""
-	copyright = ""
-	# Sharing options and author information in posts
-	aboutAuthor = "I am so interesting."
-	tweet = ""
-	share = ""
-	# 404 page
-	title404 = ""
-	subtitle404 = ""
-
-	# Choose a font for the social icons in the footer. Either "mono-social" or "font-awesome"
-	iconFont = "font-awesome"
-	# The social icons can be styled differently if you use mono as font - circle, rounded, or empty
-	socialIconStyle = ""
-
-
-# Add additional social link entries underneath
 [social]
 	rss-square = "/index.xml"
-	# facebook-square = "/index.xml"
 	twitter-square = "https://twitter.com/golangcode"
 	github-square = "https://github.com/eddturtle/golangcode-site"
+
+[deployment]
+	order = [".jpg$", ".gif$"]
+
+	[[deployment.targets]]
+		name = "live"
+		URL = "s3://golangcode.com?region=eu-west-1"
+		cloudFrontDistributionID = "E11H7N5DSISWX8"
+
+	[[deployment.matchers]]
+		#  Cache static assets for 20 years.
+		pattern = "^.+\\.(js|css|svg|ttf|woff2)$"
+		cacheControl = "max-age=630720000, no-transform, public"
+		gzip = true
+
+	[[deployment.matchers]]
+		pattern = "^.+\\.(png|jpg|gif)$"
+		cacheControl = "max-age=630720000, no-transform, public"
+		gzip = false
+
+	[[deployment.matchers]]
+		pattern = "^.+\\.(html|xml|json)$"
+		gzip = true
