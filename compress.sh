@@ -4,8 +4,8 @@
 if ! [ -x "$(command -v optipng)" ]; then
     echo 'Skip: optipng is not installed.'
 else
-    find static/ -name '*.png' -print0 | xargs -0 optipng -nc -nb -o7
-    find themes/ -name '*.png' -print0 | xargs -0 optipng -nc -nb -o7   
+    find static/ -name '*.png' -print0 | xargs -0 optipng -nc -nb -o7 -fix
+    find themes/ -name '*.png' -print0 | xargs -0 optipng -nc -nb -o7 -fix
 fi
 
 # PNG 2
