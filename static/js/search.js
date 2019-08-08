@@ -1,14 +1,19 @@
+/*!
+ * GoLangCode Search JS
+ * Parse, sort and show results based on the user's query.
+ */
+
 summaryInclude = 200;
 
 var fuseOptions = {
     shouldSort: true,
     includeMatches: true,
-    threshold: 0.0,
+    threshold: 0.1,
     tokenize: true,
     location: 0,
     distance: 100,
     maxPatternLength: 32,
-    minMatchCharLength: 1,
+    minMatchCharLength: 2,
     keys: [
         { name: "title", weight: 0.8 },
         { name: "contents", weight: 0.5 },
@@ -22,7 +27,7 @@ if (searchQuery) {
     $("#search-query").val(searchQuery);
     executeSearch(searchQuery);
     // Log
-    if (typeof ga === 'function') {
+    if (typeof ga === 'function' && searchQuery) {
         ga('send', {
             hitType: 'event',
             eventCategory: 'search',
@@ -36,7 +41,7 @@ if (searchQuery) {
 
 
 function executeSearch(searchQuery) {
-    $.getJSON("/index.json", function(data) {
+    var xhr = $.getJSON("/index.json", function(data) {
         var pages = data;
         var fuse = new Fuse(pages, fuseOptions);
         var result = fuse.search(searchQuery);
@@ -46,14 +51,22 @@ function executeSearch(searchQuery) {
             $('.search-no-results').show();
         }
     });
+    xhr.fail( function() {
+        $('.search-no-results').show();
+    })
 }
 
 function populateResults(result) {
+
+    //pull template from hugo templarte definition
+    var templateDefinition = $('#search-result-template').html();
+
     $.each(result, function(key, value) {
+        
         var contents = value.item.contents;
         var snippet = "";
         var snippetHighlights = [];
-        var tags = [];
+
         if (fuseOptions.tokenize) {
             snippetHighlights.push(searchQuery);
         } else {
@@ -72,18 +85,19 @@ function populateResults(result) {
         if (snippet.length < 1) {
             snippet += contents.substring(0, summaryInclude * 2);
         }
+        if (snippet.length > 0) {
+            snippet += '&hellip;';
+        }
 
-        snippet += '&hellip;';
+        var tagString = (Array.isArray(value.item.tags) ? value.item.tags.join(', ') : value.item.tags);
 
-        //pull template from hugo templarte definition
-        var templateDefinition = $('#search-result-template').html();
-        //replace values
+        // replace values
         var output = render(templateDefinition, {
             key: key,
             title: value.item.title,
             img: (key < 3 ? value.item.img : null),
             link: value.item.permalink,
-            tags: value.item.tags.join(', '),
+            tags: tagString,
             categories: value.item.categories,
             snippet: snippet
         });
