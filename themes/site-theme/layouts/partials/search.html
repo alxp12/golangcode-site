@@ -10,7 +10,7 @@
 <script id="search-result-template" type="text/x-js-template">
     <div id="summary-${key}" class="search-block">
         <h3><a href="${link}">${title}</a></h3>
-        ${ isset img }<div class="search-feature-image"><img src="/img/${img}" alt=""></div>${ end }
+        ${ isset img }<div class="search-feature-image"><a href="${link}"><img src="/img/${img}" alt="${title}"></a></div>${ end }
         <div class="search-content-block">
             <p>${snippet}</p>
         </div>
