@@ -12,6 +12,11 @@ tags:
   - read
   - struct
   - file
+  - string
+  - lines
+  - column
+  - variable
+meta_image: 2017/read-csv.png
 ---
 
 We have a similar post on [writing data to a CSV file](/write-data-to-a-csv-file/). This post however, focuses on the simple task of taking data from a csv file and converting it into data we can work with.
@@ -34,17 +39,7 @@ type CsvLine struct {
 
 func main() {
 
-    filename := "{{ ENTER FILE }}"
-
-    // Open CSV file
-    f, err := os.Open(filename)
-    if err != nil {
-        panic(err)
-    }
-    defer f.Close()
-
-    // Read File into a Variable
-    lines, err := csv.NewReader(f).ReadAll()
+    lines, err := ReadCsv("example.csv")
     if err != nil {
         panic(err)
     }
@@ -58,4 +53,26 @@ func main() {
         fmt.Println(data.Column1 + " " + data.Column2)
     }
 }
+
+// ReadCsv accepts a file and returns its content as a multi-dimentional type
+// with lines and each column. Only parses to string type.
+func ReadCsv(filename string) ([][]string, error) {
+
+    // Open CSV file
+    f, err := os.Open(filename)
+    if err != nil {
+        return [][]string{}, err
+    }
+    defer f.Close()
+
+    // Read File into a Variable
+    lines, err := csv.NewReader(f).ReadAll()
+    if err != nil {
+        return [][]string{}, err
+    }
+
+    return lines, nil
+}
 ```
+
+![read a csv file into a struct](/img/2017/read-csv.png)
