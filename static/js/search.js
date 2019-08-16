@@ -41,6 +41,7 @@ if (searchQuery) {
 
 
 function executeSearch(searchQuery) {
+    $('.search-loader').show();
     var xhr = $.getJSON("/index.json", function(data) {
         var pages = data;
         var fuse = new Fuse(pages, fuseOptions);
@@ -50,9 +51,11 @@ function executeSearch(searchQuery) {
         } else {
             $('.search-no-results').show();
         }
+        $('.search-loader').hide();
     });
     xhr.fail( function() {
         $('.search-no-results').show();
+        $('.search-loader').hide();
     })
 }
 
