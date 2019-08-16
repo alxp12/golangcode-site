@@ -36,5 +36,11 @@
     }
 </script>
 
-<!-- Twitter: Follow Button -->
-<script src="https://platform.twitter.com/widgets.js" crossorigin="anonymous" async defer charset="utf-8"></script>
+{{ if eq .Type "post" }}
+    <!-- Twitter: Follow Button -->
+    <script src="https://platform.twitter.com/widgets.js" crossorigin="anonymous" async defer charset="utf-8"></script>
+{{ end }}
+{{ if eq .Title "About" }}
+    <!-- Twitter: Follow Button -->
+    <script src="https://platform.twitter.com/widgets.js" crossorigin="anonymous" async defer charset="utf-8"></script>
+{{ end }}
