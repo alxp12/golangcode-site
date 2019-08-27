@@ -1033,8 +1033,14 @@ a.symbol:hover {
     }
 }
 
+// mobile version
 @media screen and (max-width: 700px) {
     .about-area {
+        img {
+            // wrap text around img
+            -webkit-shape-outside: circle();
+            shape-outside: circle();
+        }
         .dontate-button {
             display: none;
         }
