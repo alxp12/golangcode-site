@@ -45,8 +45,9 @@ import (
 var sess *session.Session
 
 func init() {
-    // Let wkhtmltopdf where to find our bin file (in the zip)
+    // Tell wkhtmltopdf where to find our bin file (in the zip)
     os.Setenv("WKHTMLTOPDF_PATH", os.Getenv("LAMBDA_TASK_ROOT"))
+
     // Setup AWS S3 Session (build once use every function)
     sess = session.Must(session.NewSession(&aws.Config{
         Region: aws.String("eu-west-1"),
@@ -68,8 +69,7 @@ func LambdaHandler(ctx context.Context, s3Event events.S3Event) {
             record.S3.Bucket.Name,
             record.S3.Object.Key,
         )
-        err := ProcessFile(record)
-        if err != nil {
+        if err := ProcessFile(record); err != nil {
             log.Println(err)
             continue
         }
@@ -86,6 +86,9 @@ func ProcessFile(record events.S3EventRecord) error {
         Bucket: &s3Item.Bucket.Name,
         Key:    &s3Item.Object.Key,
     })
+    if err != nil {
+        return err
+    }
     defer obj.Body.Close()
 
     pdfBytes, err := GeneratePDF(obj.Body)
@@ -132,9 +135,15 @@ func GeneratePDF(s3Obj io.Reader) ([]byte, error) {
 For this to work, you'll need to:
 
 * Name the code above `go-pdf-lambda.go` and run `go build go-pdf-lambda.go` to make the binary file.
+* Include a copy of wkhtmltopdf along with your lambda file inside the zip ([download directly from here](https://s3-eu-west-1.amazonaws.com/files.golangcode.com/wkhtmltopdf) or from [their download page](https://wkhtmltopdf.org/downloads.html)).
+* Make sure `wkhtmltopdf` is set to executable with `chmod +x wkhtmltopdf`.
+
+And on AWS:
+
+* The lambda function name doesn't matter, but it will need to be set to the Go 1.x runtime.
 * Set your Lambda root Handler to the go binary filename (`go-pdf-lambda` in our example)
-* Give your lambda function/role read & write permissions to S3 (through IAM)
-* Include a copy of wkhtmltopdf along with your lambda file inside the zip ([download here](https://wkhtmltopdf.org/downloads.html))
+* Add an S3 trigger on all create events.
+* Give your lambda function/role read & write permissions to S3 (through IAM).
 
 How the zip file should look:
 
