@@ -37,7 +37,7 @@ theme="site-theme"
 		gzip = true
 
 	[[deployment.matchers]]
-		pattern = "^.+\\.(png|jpg|gif)$"
+		pattern = "^.+\\.(png|jpg|gif|webm|mp4)$"
 		cacheControl = "max-age=630720000, no-transform, public"
 		gzip = false
 
