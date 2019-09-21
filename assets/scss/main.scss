@@ -4,10 +4,7 @@
 @import "reset";
 @import "highlight";
 @import "carbonads";
-
-@import "fontawesome";
-@import "solid";
-@import "brands";
+@import "fontello";
 
 $serif-stack: 'Merriweather', Georgia, serif;
 $sans-stack: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -239,9 +236,15 @@ nav.main-nav a.cta {
     background-color: #5badf0;
     color: #fff;
     margin-left: 12px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .1);
 
     &:hover {
         background-color: darken(#5badf0, 10%);
+    }
+
+    &.js-nav-search-button i {
+        display: inline-block;
+        transform: translateY(-1px);
     }
 }
 @media (max-width: 700px) {
@@ -885,12 +888,15 @@ a.symbol {
     color: #AAA;
     font-size: 2rem;
     text-decoration: none;
-    margin-right: 0.3rem;
+    display: inline-block;
+    width: 34px;
+
+    &.symbol:hover {
+        color: #BCD4DA;
+    }
 }
 
-a.symbol:hover {
-    color: #BCD4DA;
-}
+
 
 
 /**
@@ -919,31 +925,6 @@ a.symbol:hover {
     color: #3a78d7;
 }
 
-
-/* Search Box */
-
-// #cse-search-box input[type="text"] {
-//     width: 100%;
-//     padding: 8px 10px;
-//     border: 1px solid #999;
-//     border-radius: 4px;
-//     margin-bottom: 20px;
-// }
-// #cse-search-box input[type="text"]:focus {
-//     box-shadow: 0 0 7px #5badf0;
-// }
-// #cse-search-box input[type="submit"] {
-//     display: block;
-//     width: 100%;
-//     padding-top: 2px;
-//     padding-bottom: 2px;
-// }
-// @media (min-width: 700px) {
-//     #cse-search-box input[type="submit"] {
-//         width: 400px;
-//         margin: 0 auto;
-//     }
-// }
 
 .page-separator {
     display: block !important;
@@ -1135,9 +1116,6 @@ a.symbol:hover {
 }
 
 // RESULTS
-#search-results {
-    /*margin-top: 40px;*/
-}
 .search-block {
     margin-bottom: 30px;
 }
@@ -1175,11 +1153,10 @@ a.symbol:hover {
     text-align: center;
     font-size: 24px;
 
-    i.fa {
-        color: gold;
-        font-size: 65px;
+    i {
+        color: #f0d048;
+        font-size: 96px;
         display: block;
-        padding-bottom: 30px;
     }
 }
 

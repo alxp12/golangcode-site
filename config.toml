@@ -18,9 +18,9 @@ theme="site-theme"
 	disqusShortname = "golangcode"
 
 [social]
-	rss-square = "/index.xml"
-	twitter-square = "https://twitter.com/golangcode"
-	github-square = "https://github.com/eddturtle/golangcode-site"
+	rss-squared = "/index.xml"
+	twitter-squared = "https://twitter.com/golangcode"
+	github-squared = "https://github.com/eddturtle/golangcode-site"
 
 [deployment]
 	order = [".jpg$", ".gif$"]
