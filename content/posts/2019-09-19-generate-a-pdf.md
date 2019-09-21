@@ -23,9 +23,13 @@ We have already covered pdf generation to some degree, by [using `wkhtmltopdf` o
 
 It quite stright forward for simple documents, but gets more complicated the more you add to it. In our example we add some text as a title and an image just beneath it. Finally call `OutputFileAndClose()` to save the pdf to file - a screenshot of our example is shown below.
 
+To Install:
+
 ```bash
 go get github.com/jung-kurt/gofpdf
 ```
+
+Code:
 
 ```go
 package main
@@ -35,6 +39,15 @@ import (
 )
 
 func main() {
+    err := GeneratePdf("hello.pdf")
+    if err != nil {
+        panic(err)
+    }
+}
+
+// GeneratePdf generates our pdf by adding text and images to the page
+// then saving it to a file (name specified in params).
+func GeneratePdf(filename string) error {
 
     pdf := gofpdf.New("P", "mm", "A4", "")
     pdf.AddPage()
@@ -54,10 +67,10 @@ func main() {
         "",
     )
 
-    if err := pdf.OutputFileAndClose("hello.pdf"); err != nil {
-        panic(err)
-    }
+    return pdf.OutputFileAndClose(filename)
 }
 ```
 
 ![how to generate a pdf with go](/img/2019/generate-pdf.png)
+
+For more infomation and available methods, see the [library's documentation](https://godoc.org/github.com/jung-kurt/gofpdf).
