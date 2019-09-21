@@ -16,16 +16,20 @@
 			{{ with .Site.Params.home }}{{ . }}{{ else }}Home{{ end }}
 		</a>
 	{{ end }}
-	<a href='{{ .Site.BaseURL }}tags'>{{ with .Site.Params.tags }}{{ . }}{{ else }}Tags{{ end }}</a>
-	<a href='{{ .Site.BaseURL }}about'>{{ with .Site.Params.about }}{{ . }}{{ else }}About{{ end }}</a>
-
+	
+	<a href="{{ .Site.BaseURL }}tags" class="nav-tags-button">
+		{{ with .Site.Params.tags }}{{ . }}{{ else }}Tags{{ end }}
+	</a>
+	<a href='{{ .Site.BaseURL }}about'>
+		{{ with .Site.Params.about }}{{ . }}{{ else }}About{{ end }}
+	</a>
 
 	{{ range $key, $val := .Site.Params.Links }}
 		<a href="{{ $val }}">{{ $key }}</a>
 	{{ end }}
 
 	{{ if .Site.Params.enableRSS }}
-		<a class=" js-nav-subscribe-button" href="{{ .Site.RSSLink }}">
+		<a class="nav-subscribe-button js-nav-subscribe-button" href="{{ .Site.RSSLink }}">
 			<i class="icon-rss"></i>&nbsp;
 			{{ with .Site.Params.subscribe }}{{ . }}{{ else }}RSS{{ end }}
 		</a>

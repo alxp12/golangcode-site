@@ -268,9 +268,11 @@ nav.main-nav a.cta {
     .main-nav-home-link { display: none; }
 }
 
-@media (max-width: 500px) {
-    nav.main-nav a.cta {
-      display: none;
+@media (max-width: 450px) {
+    nav.main-nav {
+        a.nav-subscribe-button, a.nav-tags-button {
+            display: none;
+        }
     }
 }
 
