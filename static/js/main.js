@@ -1,5 +1,22 @@
 $(function() { 
 
+    // =============================
+    // Tags
+    // =============================
+
+    var tagList = $('.headline .tags a').each( function(i, val) {
+        $(val).data('original', $(val).css('color'));
+    });
+    tagList.parent().hover( function() {
+        var palette = ['maroon', 'red', 'Tomato', 'orange', 'LimeGreen', 'ForestGreen', 'MediumVioletRed', 'RebeccaPurple', 'SlateBlue', 'MidnightBlue'];
+        tagList.each( function(i, val) {
+            $(val).css({color: palette[i]});
+        });
+    }, function() {
+        tagList.each( function(i, val) {
+            $(val).css({color: $(val).data('original')})
+        });
+    });
 
     // =============================
     // SEARCH
@@ -33,7 +50,6 @@ $(function() {
         }
     });
 
-
     // =============================
     // SUBSCRIBE
     // =============================
@@ -47,7 +63,6 @@ $(function() {
             });
         }
     });
-
 
     // =============================
     // ABOUT
@@ -90,7 +105,6 @@ $(function() {
         }, 600);
     }
 
-
     // =============================
     // DONATE
     // =============================
@@ -103,7 +117,6 @@ $(function() {
                 transport: 'beacon'
             });
         }
-    })
-
+    });
 
 });
