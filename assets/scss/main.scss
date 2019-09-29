@@ -65,6 +65,11 @@ p, pre {
     margin: 1rem 0;
 }
 
+pre {
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+
 pre code {
     display: block;
     overflow-x: auto;
