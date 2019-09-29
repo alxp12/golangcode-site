@@ -20,6 +20,8 @@ meta_image: 2019/single-test.png
 
 Go has a simple command line for running its tests, with `go test`. However, often when writing tests you don't care about the rest of the test suite - you just want to run your new test. This post shows you the command you need to run just your test, as well as a full example below.
 
+<!--more-->
+
 ### TL;DR: use -run
 
 ```
