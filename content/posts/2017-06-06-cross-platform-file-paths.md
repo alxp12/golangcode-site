@@ -7,7 +7,8 @@ url: /cross-platform-file-paths/
 categories:
   - Uncategorized
 tags:
-  - cross platform
+  - cross
+  - platform
   - file
   - filepath
   - fromslash
@@ -17,7 +18,7 @@ tags:
   - path
   - separtor
   - windows
-
+meta_image: 2017/filepaths.png
 ---
 Unlike with URLs which have a standardised format (they use forward-slashes to separate folders), file path separators will differ between operating systems. This is mainly a historic issue, as it's almost inconceivable to change them at this stage. This means Windows uses back-slashes and *nix systems use forward slashes.
 
@@ -27,23 +28,24 @@ This is a pain however when writing cross platform software because if you know 
 package main
 
 import (
-    "fmt"
-    "os"
-    "path/filepath"
+	"fmt"
+	"os"
+	"path/filepath"
 )
 
 func main() {
 
-    // Make a cross-platform file
-    // unix='dir/example' windows='dir\example'
+	// Make a cross-platform file
+	// unix='dir/example' windows='dir\example'
 
-    // Option 1
-    examplePath := "dir" + string(os.PathSeparator) + "example"
-    fmt.Println("PathSeparator: " + examplePath)
+	// Option 1
+	examplePath1 := "dir" + string(os.PathSeparator) + "example"
+	fmt.Println("PathSeparator: " + examplePath1)
 
-    // Option 2
-    examplePath = filepath.FromSlash("dir/example")
-    fmt.Println("FromSlash: " + examplePath)
-
+	// Option 2
+	examplePath2 := filepath.FromSlash("dir/example")
+	fmt.Println("FromSlash: " + examplePath2)
 }
 ```
+
+![read a csv file into a struct](/img/2017/filepaths.png)
