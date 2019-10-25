@@ -18,7 +18,7 @@ tags:
 meta_image: 2019/get-ip-addr.png
 ---
 
-This post demonstrates how to get the IP address of incoming HTTP requests in Go. As a function, it attempts to use the `X-FORWARDED-FOR` header for code behind proxies and load balancers (such as on hosts like Heroku) while falling back to the `RemoteAddr` if the header isn't found.
+This post demonstrates how to get the IP address of incoming HTTP requests in Go. As a function, it attempts to use the `X-FORWARDED-FOR` http header for code behind proxies and load balancers (such as on hosts like Heroku) while falling back to the `RemoteAddr` if the header isn't found.
 
 Just as an example, we created an echo server (of sorts) below to reply to incoming requests with the requesting ip address in json form.
 
@@ -58,4 +58,4 @@ func GetIP(r *http.Request) string {
 
 ![get http request ip address](/img/2019/get-ip-addr.png)
 
-*(ignore the `printf` - it's just keep the output tidy)*
+*(ignore the `printf` - it's just to keep the output tidy)*
