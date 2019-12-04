@@ -1,0 +1,52 @@
+
+$darkTextColor: #EEE;
+$darkLinkColor: #43abff;
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #4f3434;
+    	color: $darkTextColor;
+    }
+
+    // headers
+    h1, h2, h3, h4, h5, 
+    .post header h1, 
+    .profile h1 {
+    	color: $darkTextColor;
+    }
+
+    code {
+    	color: $darkTextColor;
+    }
+
+    // headers which are links
+    div.pre-nav-header a, 
+    #post-list a.post-title {
+    	color: $darkLinkColor;
+
+    	&:hover {
+    		color: darken($darkLinkColor, 10%)
+    	}
+    }
+
+    // ellipsis
+    .page-separator {
+    	color: #666;
+    }
+
+    .related-content {
+	    &:after {
+	        background: none;
+	    }
+	}
+
+	.about-area {
+        background-color: #555;
+        border-color: #4988bb;
+	}
+
+	// search flashing bg
+	.search-form-bg {
+		background: rgba(0,0,0,.5);
+	}
+}

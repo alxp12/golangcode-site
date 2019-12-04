@@ -99,6 +99,8 @@ pre code {
 .profile #avatar {
     display: inline-block;
     margin-bottom: 20px;
+    background-color: white; // for dark mode
+    padding: 2px;
 }
 
 .profile h1 {
@@ -142,6 +144,7 @@ div.pre-nav-header a {
         margin-left: -80px;
         position: absolute;
         opacity: .7;
+        background-color: white; // for dark mode
     }
 }
 
@@ -211,8 +214,8 @@ div.nav-ads-area {
 
 nav.main-nav {
     padding: 20px 20px 0;
-    background: #fff;
-    background: rgba(255, 255, 255, .90);
+    // background: #fff;
+    // background: rgba(255, 255, 255, .90);
     margin: 0 auto;
     text-align: right;
     z-index: 100;
@@ -1206,3 +1209,7 @@ a.symbol {
     transform: rotate(360deg);
   }
 }
+
+
+
+@import "dark-theme";
