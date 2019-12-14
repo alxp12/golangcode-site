@@ -16,7 +16,7 @@ tags:
   - heap
   - alloc
   - memstats
-meta_image: print-memory-usage.gif
+meta_image: 2017/print-current-memory-usage.png
 ---
 
 The program below is designed to print out the current state of how much memory is being used, how much has been used and how much the system has reserved. You only really need the `PrintMemUsage()` function to do this, the rest of the `main()` is there to illustrate it working (with a gif showing this at the end of this post).
@@ -79,4 +79,9 @@ func bToMb(b uint64) uint64 {
 
 Example:
 
-![Example of Measuring Function Execution Time](/img/print-memory-usage.gif)
+{{< rawhtml >}}
+    <video autoplay loop muted playsinline>
+        <source src="/img/2017/print-current-memory-usage.webm" type="video/webm">
+        <source src="/img/2017/print-current-memory-usage.mp4" type="video/mp4">
+    </video>
+{{< /rawhtml >}}
