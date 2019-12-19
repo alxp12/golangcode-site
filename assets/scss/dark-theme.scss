@@ -1,5 +1,5 @@
 
-$darkTextColor: #EEE;
+$darkTextColor: #f7f7f7; // just above #eee
 $darkLinkColor: #43abff;
 
 @media (prefers-color-scheme: dark) {
@@ -15,7 +15,7 @@ $darkLinkColor: #43abff;
     	color: $darkTextColor;
     }
 
-    code {
+    code, b, strong {
     	color: $darkTextColor;
     }
 
@@ -27,6 +27,13 @@ $darkLinkColor: #43abff;
     	&:hover {
     		color: darken($darkLinkColor, 10%)
     	}
+    }
+
+    div.nav-ads-area {
+        background: none;
+    }
+    #carbonads {
+        color: #444;
     }
 
     // ellipsis
