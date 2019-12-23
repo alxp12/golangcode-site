@@ -1,6 +1,36 @@
 $(function() { 
 
     // =============================
+    // Lazy-load Disqus
+    // =============================
+
+    if (document.getElementById("disqus_thread") !== null) {
+        if ("IntersectionObserver" in window) {
+            startDisqusObserver();
+        } else {
+            loadDisqus($("#disqus_thread").attr('data-shortname'));
+        }
+    }
+
+    // Look for when the user hits the comments before loading
+    function startDisqusObserver() {
+        var disqus_observer = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) {
+                loadDisqus(entries[0].target.getAttribute('data-shortname'));
+                disqus_observer.disconnect();
+            }
+        }, {threshold: [0]});
+        disqus_observer.observe(document.querySelector("#disqus_thread"));
+    }
+
+    // Load the script
+    function loadDisqus(disqus_shortname) {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }
+
+    // =============================
     // Tags
     // =============================
 

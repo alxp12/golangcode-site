@@ -21,17 +21,5 @@
 <script>hljs.initHighlightingOnLoad();</script>
 {{ range .Site.Params.customJS }}<script src="{{ $.Site.BaseURL }}{{ . }}"></script>{{ end }}
 
-<!-- Disqus: Blog Comments -->
-<script type="text/javascript" async defer>
-    if (document.getElementById("disqus_thread") !== null) {
-        var disqus_shortname = '{{ .Site.Params.disqusShortname }}';
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    }
-</script>
-
 {{ if eq .Type "post" }}<script src="https://platform.twitter.com/widgets.js" crossorigin="anonymous" async defer charset="utf-8"></script>{{ end }}
 {{ if eq .Title "About" }}<script src="https://platform.twitter.com/widgets.js" crossorigin="anonymous" async defer charset="utf-8"></script>{{ end }}
