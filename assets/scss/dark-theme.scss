@@ -2,9 +2,11 @@
 $darkTextColor: #f7f7f7; // just above #eee
 $darkLinkColor: #43abff;
 
+$darkBG: #4f3434;
+
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #4f3434;
+        background-color: $darkBG;
     	color: $darkTextColor;
     }
 
@@ -56,4 +58,6 @@ $darkLinkColor: #43abff;
 	.search-form-bg {
 		background: rgba(0,0,0,.5);
 	}
+
+    .loader:after { background-color: $darkBG; }
 }

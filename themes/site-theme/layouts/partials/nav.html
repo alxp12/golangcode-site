@@ -1,13 +1,13 @@
 {{ $url := replace .Permalink .Site.BaseURL "" }}
 
-<div class="pre-nav-header">
 {{ if not .IsHome }}
+<div class="pre-nav-header">
 	<a href='{{ .Site.BaseURL }}'>
     	<img id="avatar" src="{{ .Site.BaseURL }}logo.svg" height="44" width="62" alt="Golang Gopher logo" />
 		Golang Code
 	</a>
-{{ end }}
 </div>
+{{ end }}
 
 <nav class="main-nav" role="navigation">
 	{{ if not .IsHome }}
