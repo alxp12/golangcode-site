@@ -15,7 +15,7 @@ tags:
   - stream
   - teereader
   - progress
-meta_image: download-file-example.gif
+meta_image: 2017/download-file-example.gif
 ---
 
 We've already covered [basic downloading of files](/download-a-file-from-a-url/) - this post goes beyond that to create a more complete downloader by including progress reporting of the download. This means if you're pulling down large files you are able to see how the download's going.
@@ -29,16 +29,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/dustin/go-humanize"
 	"io"
 	"net/http"
 	"os"
 	"strings"
+
+	"github.com/dustin/go-humanize"
 )
 
-// WriteCounter counts the number of bytes written to it. It implements to the io.Writer
-// interface and we can pass this into io.TeeReader() which will report progress on each
-// write cycle.
+// WriteCounter counts the number of bytes written to it. It implements to the io.Writer interface
+// and we can pass this into io.TeeReader() which will report progress on each write cycle.
 type WriteCounter struct {
 	Total uint64
 }
@@ -83,30 +83,31 @@ func DownloadFile(filepath string, url string) error {
 	if err != nil {
 		return err
 	}
-	defer out.Close()
 
 	// Get the data
 	resp, err := http.Get(url)
 	if err != nil {
+		out.Close()
 		return err
 	}
 	defer resp.Body.Close()
 
 	// Create our progress reporter and pass it to be used alongside our writer
 	counter := &WriteCounter{}
-	_, err = io.Copy(out, io.TeeReader(resp.Body, counter))
-	if err != nil {
+	if _, err = io.Copy(out, io.TeeReader(resp.Body, counter)); err != nil {
+		out.Close()
 		return err
 	}
 
 	// The progress use the same line so print a new line once it's finished downloading
 	fmt.Print("\n")
 
-	err = os.Rename(filepath+".tmp", filepath)
-	if err != nil {
+	// Close the file without defer so it can happen before Rename()
+	out.Close()
+
+	if err = os.Rename(filepath+".tmp", filepath); err != nil {
 		return err
 	}
-
 	return nil
 }
 ```
@@ -122,4 +123,9 @@ Download Finished
 
 And here's what it looks like:
 
-![Example on the file downloader](/img/download-file-example.gif)
+{{< rawhtml >}}
+    <video autoplay loop muted playsinline>
+        <source src="/img/2017/download-a-file.webm" type="video/webm">
+        <source src="/img/2017/download-a-file.mp4" type="video/mp4">
+    </video>
+{{< /rawhtml >}}
