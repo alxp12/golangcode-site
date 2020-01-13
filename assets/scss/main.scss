@@ -1175,6 +1175,10 @@ a.symbol {
 .search-loader {
     padding: 50px 0 600px 0;
     display: none;
+
+    &.show-by-default {
+        display: block;
+    }
 }
 .loader {
     width: 120px;
