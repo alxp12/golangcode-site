@@ -18,7 +18,9 @@ tags:
   - valid
 meta_image: 2017/validate-url.png
 ---
-Here's a little snippet to determine if a string is well structured and considered valid url. This can be useful for pre-empting if a http call will work - or preventing failures from even occurring. In this snippet we're using a function to tidy this logic and make it reusable and we are essentially parsing the url and checking for any errors.
+Here's a little snippet to determine if a string is well structured and valid url. This can be useful for pre-empting if a http call will work - or preventing failures from even occurring. In this snippet we're using a function to tidy this logic and make it reusable and we are essentially parsing the url and checking for any errors.
+
+`ParseRequestURI()` is our primary basic check, but it will allow strings like 'Test: Test' to pass (which we don't want). We therefore combine it with a url parser to check that both a scheme (like http) and a host exist. 
 
 <!--more-->
 
@@ -26,29 +28,34 @@ Here's a little snippet to determine if a string is well structured and consider
 package main
 
 import (
-    "fmt"
-    "net/url"
+	"fmt"
+	"net/url"
 )
 
 func main() {
-    // = true
-    fmt.Println(isValidUrl("http://www.golangcode.com"))
+	// = true
+	fmt.Println(isValidUrl("http://www.golangcode.com"))
 
-    // = false
-    fmt.Println(isValidUrl("golangcode.com"))
+	// = false
+	fmt.Println(isValidUrl("golangcode.com"))
 
-    // = false
-    fmt.Println(isValidUrl(""))
+	// = false
+	fmt.Println(isValidUrl(""))
 }
 
 // isValidUrl tests a string to determine if it is a well-structured url or not.
 func isValidUrl(toTest string) bool {
-    _, err := url.ParseRequestURI(toTest)
-    if err != nil {
-        return false
-    } else {
-        return true
-    }
+	_, err := url.ParseRequestURI(toTest)
+	if err != nil {
+		return false
+	}
+
+	u, err := url.Parse(toTest)
+	if err != nil || u.Scheme == "" || u.Host == "" {
+		return false
+	}
+
+	return true
 }
 ```
 
