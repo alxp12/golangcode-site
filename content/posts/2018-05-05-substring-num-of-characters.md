@@ -12,6 +12,8 @@ tags:
   - characters
   - rune
   - convert
+  - string
+  - explode
 meta_image: 2018/sub-string.png
 ---
 
@@ -19,27 +21,49 @@ In the example below we are looking at how to take the first x number of charact
 
 To do this we first convert it into a rune, allowing for better support in different languages and allowing us to use it like an array. Then we pick the first characters using `[0:6]` and converting it back to a string.
 
+### Split Based on Position:
+
 ```go
 package main
 
 import (
-    "fmt"
+	"fmt"
 )
 
 func main() {
 
-    myString := "Hello! This is a golangcode.com test ;)"
+	myString := "Hello! This is a golangcode.com test ;)"
 
-    // Step 1: Convert it to a rune
-    a := []rune(myString)
+	// Step 1: Convert it to a rune
+	a := []rune(myString)
 
-    // Step 2: Grab the num of chars you need
-    myShortString := string(a[0:6])
+	// Step 2: Grab the num of chars you need
+	myShortString := string(a[0:6])
 
-    fmt.Println(myShortString)
+	fmt.Println(myShortString)
 }
 ```
 
-Example:
-
 ![](/img/2018/sub-string.png)
+
+### Split Based on Character:
+
+The alternative way, using the `strings` package would be:
+
+```go
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+
+	myString := "Hello! This is a golangcode.com test ;)"
+
+	strParts := strings.Split(myString, "!")
+
+	fmt.Println(strParts[0])
+}
+```
