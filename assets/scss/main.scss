@@ -1130,7 +1130,30 @@ a.symbol {
 // RESULTS
 .search-block {
     margin-bottom: 30px;
+
+    // init animation:
+    opacity: 0; 
+    transform: translate(50px, 0);
+
+    // animate:
+    animation: search-slide 0.5s forwards;
+    animation-delay: .3s;
+    
+    &:nth-of-type(1) {
+        animation-delay: 0s;
+    }
+    &:nth-of-type(2) {
+        animation-delay: .1s;
+    }
+    &:nth-of-type(3) {
+        animation-delay: .2s;
+    }
 }
+
+@keyframes search-slide {
+    100% { opacity: 1; transform: translate(0, 0); }
+}
+
 .search-feature-image { 
     max-width: 280px;
     float: left;
