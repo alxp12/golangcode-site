@@ -4,11 +4,12 @@ $(function() {
     // Lazy-load Disqus
     // =============================
 
-    if (document.getElementById("disqus_thread") !== null) {
+    var disqusEl = document.getElementById("disqus_thread");
+    if (disqusEl !== null) {
         if ("IntersectionObserver" in window) {
             startDisqusObserver();
         } else {
-            loadDisqus($("#disqus_thread").attr('data-shortname'));
+            loadDisqus(disqusEl.getAttribute('data-shortname'));
         }
     }
 
@@ -19,14 +20,14 @@ $(function() {
                 loadDisqus(entries[0].target.getAttribute('data-shortname'));
                 disqus_observer.disconnect();
             }
-        }, {threshold: [0]});
+        }, {threshold: [0], rootMargin: "0px 0px 300px 0px"});
         disqus_observer.observe(document.querySelector("#disqus_thread"));
     }
 
     // Load the script
-    function loadDisqus(disqus_shortname) {
+    function loadDisqus(disqusShortname) {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        dsq.src = '//' + disqusShortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }
 
@@ -37,8 +38,8 @@ $(function() {
     var tagList = $('.headline .tags a').each( function(i, val) {
         $(val).data('original', $(val).css('color'));
     });
+    var palette = ['maroon', 'red', 'Tomato', 'orange', 'LimeGreen', 'ForestGreen', 'MediumVioletRed', 'RebeccaPurple', 'SlateBlue', 'MidnightBlue'];
     tagList.parent().hover( function() {
-        var palette = ['maroon', 'red', 'Tomato', 'orange', 'LimeGreen', 'ForestGreen', 'MediumVioletRed', 'RebeccaPurple', 'SlateBlue', 'MidnightBlue'];
         tagList.each( function(i, val) {
             $(val).css({color: palette[i]});
         });

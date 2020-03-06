@@ -4,7 +4,7 @@
         {{ if ne $url "about/" }}
             {{ if ne $url "search/" }}
                 <li>
-                    <a href='{{ .Permalink }}' class="post-title">{{ .Title }}</a>
+                    <a href="{{ .Permalink }}" class="post-title">{{ .Title }} <i class="icon-right"></i></a>
                     <p>{{ .Summary | plainify | htmlUnescape }}</p>
                     <span class="tags">
                         {{ with .Params.tags }}

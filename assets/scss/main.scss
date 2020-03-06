@@ -541,9 +541,20 @@ Post List
     display: block;
     font: bold 24px/1.5em $sans-stack;
     transition: color .15s ease-in-out;
+
+    i { 
+        transition: all .15s ease-in-out;
+        opacity: 0; 
+        margin-left: 0px;
+    }
 }
 #post-list a.post-title:hover {
     color: #2c96ec;
+
+    i {
+        opacity: 1; 
+        margin-left: 10px;
+    }
 }
 
 #post-list .tags a {
@@ -687,11 +698,13 @@ Post List
 }
 
 #post-nav span.prev:hover {
-    left: -3px;
+    margin-left: -6px;
+    padding-right: 12px;
 }
 
 #post-nav span.next:hover {
-    right: -3px;
+    margin-right: -6px;
+    padding-left: 12px;
 }
 
 #post-nav a {
@@ -699,6 +712,8 @@ Post List
     padding: 10px 14px;
     color: white;
     border-radius: 8px;
+
+    transition: all 0.2s linear;
 }
 
 
@@ -1138,7 +1153,7 @@ a.symbol {
     // animate:
     animation: search-slide 0.5s forwards;
     animation-delay: .3s;
-    
+
     &:nth-of-type(1) {
         animation-delay: 0s;
     }
