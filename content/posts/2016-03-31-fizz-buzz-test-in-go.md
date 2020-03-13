@@ -16,7 +16,7 @@ tags:
   - loop
 
 ---
-The [fizzbuzz](http://wiki.c2.com/?FizzBuzzTest) test is a simple program, often used in interviews to identify people who stuggle to code. 
+The [fizzbuzz](http://wiki.c2.com/?FizzBuzzTest) test is a simple program, often used in interviews to identify people who struggle to code. 
 
 The program should print the numbers from 1 to 100, except if the number is divisible by 3 then print 'fizz', if the number is divisible by 5 print 'buzz' or if the number if divisible by both print 'fizzbuzz'.
 

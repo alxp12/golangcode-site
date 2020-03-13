@@ -30,7 +30,7 @@ type Address struct {
 }
 ```
 
-**Mutliple Tags:**
+**Multiple Tags:**
 For when you need to use multiple tags they can be separated by spaces.
 
 ```go

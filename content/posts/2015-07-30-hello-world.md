@@ -4,8 +4,6 @@ author: Edd Turtle
 type: post
 date: 2015-07-30T19:23:08+00:00
 url: /hello-world/
-rop_post_url_twitter:
-  - 'https://golangcode.com/hello-world/?utm_source=ReviveOldPost&utm_medium=social&utm_campaign=ReviveOldPost'
 categories:
   - Uncategorized
 tags:

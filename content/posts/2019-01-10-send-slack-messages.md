@@ -20,7 +20,7 @@ tags:
 
 Programs often need to notify us of events and using services like Slack, Hipchat (or even email) make this convenient for us. This code snippet is a way of sending a message to Slack via an Incoming Webhook - you can set these up in the [Slack Apps](https://api.slack.com/apps) area. All you need is to set the incoming webhook url and change the text to be anything you want.
 
-It does include a timeout (of 10 seconds) if something happens to Slack respose times for any reason. It also checks that the response doesn't return an error.
+It does include a timeout (of 10 seconds) if something happens to Slack response times for any reason. It also checks that the response doesn't return an error.
 
 ```go
 package main

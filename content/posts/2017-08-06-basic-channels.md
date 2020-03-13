@@ -45,7 +45,7 @@ func work(messages chan<- string) {
 
 You'll notice that channels are defined with the `chan` keyword and can be made with `make()`.
 
-In this example, the work function also explictly states which way the channel it expects will send data. So `chan<-` will accept data passed into it, and `<-chan` will expect a channel to pass data out of.
+In this example, the work function also explicitly states which way the channel it expects will send data. So `chan<-` will accept data passed into it, and `<-chan` will expect a channel to pass data out of.
 
 ![passing data back from a channel in go](/img/2017/pass-data-back-from-channel.png)
 

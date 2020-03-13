@@ -18,7 +18,7 @@ tags:
 meta_image: 2020/sentiment.png
 ---
 
-Sentiment analysis is an interesting technique of juding whether a sentence, word or paragraph is considered a positive or negative thing. It's often used against datasets like tweets as it allows you to summarize a mass of small sentences into an easy to understand stat.
+Sentiment analysis is an interesting technique of judging whether a sentence, word or paragraph is considered a positive or negative thing. It's often used against datasets like tweets as it allows you to summarize a mass of small sentences into an easy to understand stat.
 
 In our example, we're using a package called [sentiment](https://github.com/cdipaolo/sentiment) - which was trained against IMDB comment data - to judge whether our example sentences are positive or negative. Because it was trained on short comments about films it might not be appropriate for your use case.
 

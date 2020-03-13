@@ -19,7 +19,7 @@ tags:
 meta_image: 2019/foreach.png
 ---
 
-The foreach keyword itself does not exist within Go, instead the `for` loop can be adapted to work in the same maner. The difference however, is by using the `range` keyword and a for loop together. Like foreach loops in many other languages you have the choice of using the slices' key or value within the loop.
+The foreach keyword itself does not exist within Go, instead the `for` loop can be adapted to work in the same manner. The difference however, is by using the `range` keyword and a for loop together. Like foreach loops in many other languages you have the choice of using the slices' key or value within the loop.
 
 **Example 1)**
 

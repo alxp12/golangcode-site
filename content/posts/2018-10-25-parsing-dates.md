@@ -17,7 +17,7 @@ tags:
 meta_image: 2018/parse-date-2.png
 ---
 
-We almost touched on this in our post about [unix time](/get-unix-time/) - but in this post we look at how to take an arbritary date in string format and convert it into a meaningful date in the format we want. This uses two important functions, `Parse` and `Format` within the [time package](https://golang.org/pkg/time/).
+We almost touched on this in our post about [unix time](/get-unix-time/) - but in this post we look at how to take an arbitrary date in string format and convert it into a meaningful date in the format we want. This uses two important functions, `Parse` and `Format` within the [time package](https://golang.org/pkg/time/).
 
 The parse function is interesting because, unlike some programming languages, to parse a date you don't specify the date using letters (Y-m-d for example). Instead you use a real time as the format - this time in fact: `2006-01-02T15:04:05+07:00`.
 

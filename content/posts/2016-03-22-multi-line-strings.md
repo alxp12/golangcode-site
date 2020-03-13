@@ -11,7 +11,7 @@ categories:
 tags:
   - backtick
   - bytes
-  - mutiline
+  - multiline
   - printf
   - quotes
   - raw

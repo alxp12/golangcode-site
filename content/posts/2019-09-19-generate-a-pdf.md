@@ -21,7 +21,7 @@ meta_image: 2019/generate-pdf.png
 
 We have already covered pdf generation to some degree, by [using `wkhtmltopdf` on AWS' Lambda service](/lambda-pdf-generator-from-s3/). This post is about generating pdfs without needing wkhtml - by building the pdf from Go itself. To do this we use a library called [`gofpdf`](https://github.com/jung-kurt/gofpdf) to build the pdf.
 
-It quite stright forward for simple documents, but gets more complicated the more you add to it. In our example we add some text as a title and an image just beneath it. Finally call `OutputFileAndClose()` to save the pdf to file - a screenshot of our example is shown below.
+It quite straightforward for simple documents, but gets more complicated the more you add to it. In our example we add some text as a title and an image just beneath it. Finally call `OutputFileAndClose()` to save the pdf to file - a screenshot of our example is shown below.
 
 To Install:
 
@@ -73,4 +73,4 @@ func GeneratePdf(filename string) error {
 
 ![how to generate a pdf with go](/img/2019/generate-pdf.png)
 
-For more infomation and available methods, see the [library's documentation](https://godoc.org/github.com/jung-kurt/gofpdf).
+For more information and available methods, see the [library's documentation](https://godoc.org/github.com/jung-kurt/gofpdf).

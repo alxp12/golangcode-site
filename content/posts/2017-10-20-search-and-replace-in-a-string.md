@@ -10,13 +10,13 @@ tags:
   - strings
   - search
   - replace
-  - occurrance
+  - occurrence
   - escape
   - quotes
 meta_image: 2017/str-replace.png
 ---
 
-As programmers we often need to take a string and replace parts of it with something else. The code below has three examples, first of which is a basic 'find all' and replace, the second changes only the first occurrence of 'sound' and finally the third example demonstrates how to change a string containing quotes to use escaped quotes. These are changed by using the 4th argument to define how many times to replace, with -1 being everytime.
+As programmers we often need to take a string and replace parts of it with something else. The code below has three examples, first of which is a basic 'find all' and replace, the second changes only the first occurrence of 'sound' and finally the third example demonstrates how to change a string containing quotes to use escaped quotes. These are changed by using the 4th argument to define how many times to replace, with -1 being every time.
 
 All this functionality is managed by the `strings` package and the `Replace` function ([view docs](https://golang.org/pkg/strings/#Replace)).
 
@@ -35,7 +35,7 @@ func main() {
     myText = strings.Replace(myText, "Welcome", "Willkommen", -1)
     fmt.Println(myText)
 
-    // Example 2: Change first occurance
+    // Example 2: Change first occurrence
     // Output: The car sounds sound
     myText = "The sound sounds sound"
     myText = strings.Replace(myText, "sound", "car", 1)

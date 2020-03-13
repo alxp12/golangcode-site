@@ -16,7 +16,7 @@ tags:
   - nix
   - os
   - path
-  - separtor
+  - separator
   - windows
 meta_image: 2017/filepaths.png
 ---

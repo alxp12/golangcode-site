@@ -27,7 +27,7 @@ cannot convert result (type interface {}) to type float64: need type assertion
 invalid operation: myInt += 5 (mismatched types interface {} and int)
 ```
 
-Functions and packages will at times return `interface{}` as a type because the type would be unpredicable or unknown to them. Returning interface allows them to pass data around without know it's type. 
+Functions and packages will at times return `interface{}` as a type because the type would be unpredictable or unknown to them. Returning interface allows them to pass data around without know it's type. 
 
 Not knowing the variable's true type however means that later down the line, many calls on this data won't work - like the `+=` operation in our example below. So we type assert it by placing the type in brackets after the variable name.
 

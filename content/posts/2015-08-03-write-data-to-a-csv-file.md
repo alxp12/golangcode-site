@@ -63,6 +63,6 @@ Line1,Hello Readers of
 Line2,golangcode.com
 ```
 
-This process is possible through two packages, `os` and `encoding/csv` - one which handles the file interactions the other which converts the data sturcture into csv format.
+This process is possible through two packages, `os` and `encoding/csv` - one which handles the file interactions the other which converts the data structure into csv format.
 
  [1]: http://golangcode.com/writing-to-file/

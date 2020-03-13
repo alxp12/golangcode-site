@@ -20,7 +20,7 @@ tags:
 
 This is an example of how to convert HTML code into a PDF using AWS' Lambda service and S3 Triggers. So that once a HTML file is upload to S3 it will automatically be converted into a PDF which should appear in the same bucket shortly after - all using a serverless function.
 
-To do this, other than the standard library, we're using a Go wkhtmltopdf library and the Go AWS sdk. The wkhtmltopdf Go libaray is a wrapper to the binary file - which will need to be included in our final zip file that we upload to lambda.
+To do this, other than the standard library, we're using a Go wkhtmltopdf library and the Go AWS sdk. The wkhtmltopdf Go library is a wrapper to the binary file - which will need to be included in our final zip file that we upload to lambda.
 
 ```go
 package main

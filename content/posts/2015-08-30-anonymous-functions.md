@@ -19,7 +19,7 @@ tags:
 
 Here is a basic example of how an anonymous function, or lambda function, can be used with Go. We're just printing a statement to screen, but it can be used for various things - one of which can be just to segment code which will only need to get run once and doesn't need to be referenced.
 
-It also has the use case of encapulating the variables used within itself, so only from within are you able to access a variable from within. Once the function has finished the variables can then be garbage collected. To pass data into the function we have to add it to the execution parenthesis at the end.
+It also has the use case of encapsulating the variables used within itself, so only from within are you able to access a variable from within. Once the function has finished the variables can then be garbage collected. To pass data into the function we have to add it to the execution parenthesis at the end.
 
 ```go
 package main

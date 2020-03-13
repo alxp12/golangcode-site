@@ -22,7 +22,7 @@ meta_image: 2019/jwt.png
 
 There are of course many [different ways](https://blog.restcase.com/restful-api-authentication-basics/) to build authentication into APIs these days - JSON web tokens being just one of them. JSON Web Tokens (JWT) have an inherent advantage over other methods, like Basic Authentication, by working as a token system instead of sending the username and password with every request. To learn more about it, head over to the [introduction on jwt.io](https://jwt.io/introduction/) before we dive straight into it.
 
-Below is an example of JWT in action. There are two main parts: the providing of a username and password to aquire a token; and the checking of that token on a request.
+Below is an example of JWT in action. There are two main parts: the providing of a username and password to acquire a token; and the checking of that token on a request.
 
 We use two libraries in this example, a [JWT implementation in Go](https://github.com/dgrijalva/jwt-go) and a way of using [this as middleware](https://github.com/auth0/go-jwt-middleware).
 
