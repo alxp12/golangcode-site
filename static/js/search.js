@@ -26,15 +26,7 @@ var searchQuery = param("s");
 if (searchQuery) {
     $("#search-query").val(searchQuery);
     executeSearch(searchQuery);
-    // Log
-    if (typeof ga === 'function' && searchQuery) {
-        ga('send', {
-            hitType: 'event',
-            eventCategory: 'search',
-            eventAction: 'query',
-            eventLabel: searchQuery,
-        });
-    }
+    logSearch(searchQuery);
 } else {
     $('#search-results').hide();
 }
@@ -57,6 +49,23 @@ function executeSearch(searchQuery) {
         $('.search-no-results').show();
         $('.search-loader').hide();
     })
+}
+
+function logSearch(searchQuery) {
+    // Ignore local
+    if (["localhost", "127.0.0.1", ""].includes(window.location.hostname)) {
+        console.log("Analytics ignored as it's localhost");
+        return;
+    }
+    // Only run if ganalytics is loaded and has search term
+    if (typeof ga === 'function' && searchQuery) {
+        ga('send', {
+            hitType: 'event',
+            eventCategory: 'search',
+            eventAction: 'query',
+            eventLabel: searchQuery.toLowerCase(),
+        });
+    }
 }
 
 function populateResults(result) {
