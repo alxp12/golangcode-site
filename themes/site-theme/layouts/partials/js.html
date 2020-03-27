@@ -1,5 +1,5 @@
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="{{ .Site.BaseURL }}js/jquery-3.4.1.min.js"><\/script>');</script>
 
 <!-- Important to have before scripts, as ga() is used in scripts -->
@@ -9,13 +9,15 @@
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
+{{ $mainJs := resources.Get "js/main.js" | resources.Minify | fingerprint }}
+<script src="{{ $mainJs.Permalink }}"></script>
+
 {{ if eq .Title "Search" }}
     <script src="{{ .Site.BaseURL }}js/fuse-3.4.5.min.js"></script>
     <script src="{{ .Site.BaseURL }}js/jquery.mark-8.11.1.min.js"></script>
-    <script src="{{ "js/search.js" | absURL }}"></script>
+	{{ $searchJs := resources.Get "js/search.js" | resources.Minify | fingerprint }}
+	<script src="{{ $searchJs.Permalink }}"></script>
 {{ end }}
-
-<script src="{{ .Site.BaseURL }}js/main.js?v={{ now.Unix }}" async defer></script>
 
 <script src="{{ .Site.BaseURL }}js/highlight.pack-9.17.1.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>

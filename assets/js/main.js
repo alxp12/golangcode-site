@@ -1,4 +1,19 @@
-$(function() { 
+/*!
+ * GoLangCode Main JS
+ */
+
+"use strict";
+
+// non-jQuery equivalent to $( function() {})
+// https://stackoverflow.com/a/53601942/402585
+function domReady(fn) {
+    document.addEventListener("DOMContentLoaded", fn);
+    if (document.readyState === "interactive" || document.readyState === "complete") {
+        fn();
+    }
+}
+
+domReady(function() { 
 
     // =============================
     // Lazy-load Disqus
@@ -53,10 +68,8 @@ $(function() {
     // SEARCH
     // =============================
 
-    $('.js-nav-search-button').click(function() { 
-        if (typeof ga === 'function') {
-            ga('send', 'event', { eventCategory: 'search', eventAction: 'click' });
-        }
+    $('.js-nav-search-button').click(function() {
+        logEvent({ eventCategory: 'search', eventAction: 'click' });
         var area = $('.search-form');
         if (area.length > 0) {
             // Early return for pages with search form already open
@@ -65,17 +78,13 @@ $(function() {
                 area.find('input[type="text"]').focus();
                 return false;
             }
-            if (area.hasClass('hidden')) {
-                // Open
-                $('.search-form-bg').show().fadeOut(1500);
+            if (area.hasClass('closed')) {
                 // Slide down form + focus
-                area.removeClass('hidden').hide().slideDown('fast', function() {
-                    area.find('input[type="text"]').focus();
-                });
+                area.removeClass('closed');
+                area.show().find('input[type="text"]').focus();
             } else {
                 // Close
-                $('.search-form-bg').hide();
-                area.addClass('hidden');
+                area.addClass('closed');
             }
             return false;
         }
@@ -86,13 +95,11 @@ $(function() {
     // =============================
 
     $('.js-nav-subscribe-button').click( function() {
-        if (typeof ga === 'function') {
-            ga('send', 'event', {
-                eventCategory: 'subscribe',
-                eventAction: 'click',
-                transport: 'beacon'
-            });
-        }
+        logEvent({
+            eventCategory: 'subscribe',
+            eventAction: 'click',
+            transport: 'beacon'
+        });
     });
 
     // =============================
@@ -141,13 +148,24 @@ $(function() {
     // =============================
 
     $('.dontate-button').submit( function() {
-        if (typeof ga === 'function') {
-            ga('send', 'event', {
-                eventCategory: 'donate',
-                eventAction: 'submit',
-                transport: 'beacon'
-            });
-        }
+        logEvent({
+            eventCategory: 'donate',
+            eventAction: 'submit',
+            transport: 'beacon'
+        });
     });
 
 });
+
+
+function logEvent(opt) {
+    // Ignore local
+    if (["localhost", "127.0.0.1", ""].includes(window.location.hostname)) {
+        console.log("Analytics ignored as it's localhost");
+        return;
+    }
+    // Only run if ganalytics is loaded and has search term
+    if (typeof ga === 'function') {
+        ga('send', opt);
+    }
+}

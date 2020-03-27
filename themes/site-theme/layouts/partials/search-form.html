@@ -1,8 +1,5 @@
 
-<!-- white bg (fade out) -->
-<div class="search-form-bg"></div>
-
-<form action="{{ "search" | absURL }}/" class="search-form {{ if and (ne .Title "Search") (ne .IsHome true) }}hidden{{ else }}non-close{{ end }}">
+<form action="{{ "search" | absURL }}/" class="search-form {{ if and (ne .Title "Search") (ne .IsHome true) }}closed{{ else }}non-close{{ end }}">
     <input type="text" 
            id="search-query" 
            name="s" 
