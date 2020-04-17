@@ -73,6 +73,8 @@ jQuery
 goroutine
 goroutines
 marshal
+MarshalJSON
+UnmarshalJSON
 putobject
 PutObject
 getobject
@@ -128,3 +130,4 @@ JWT
 StackOverflow
 aes
 AES
+uploader

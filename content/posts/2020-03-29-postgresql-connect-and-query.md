@@ -24,6 +24,8 @@ Sometimes getting a database connection up and running can be a bit fiddly, we'v
 
 To do with we use the `database/sql` interface and load in the [`pq`](https://github.com/lib/pq) driver/library to actually do the work for us. We're using `QueryRow()` which will only return the single row. If you need more than one row you can use [`Query()`](https://golang.org/pkg/database/sql/#Stmt.Query) which returns multiple rows for you to turn each into a struct.
 
+Note: This should be very similar to [connecting to CockroachDB](https://github.com/cockroachdb/examples-go)
+
 ```go
 package main
 
@@ -79,4 +81,4 @@ CREATE TABLE users (
 );
 ```
 
-![handling errors in wait groups](/img/2020/postgre.png)
+![postgreSQL example in go](/img/2020/postgre.png)
