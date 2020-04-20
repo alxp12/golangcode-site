@@ -164,6 +164,11 @@ function logEvent(opt) {
         console.log("Analytics ignored as it's localhost");
         return;
     }
+    // Ignore DNT
+    if (navigator.doNotTrack) {
+        console.log("Analytics ignored as DNT is enabled for this user");
+        return;
+    }
     // Only run if ganalytics is loaded and has search term
     if (typeof ga === 'function') {
         ga('send', opt);
