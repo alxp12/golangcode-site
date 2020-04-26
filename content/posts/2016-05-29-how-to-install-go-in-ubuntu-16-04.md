@@ -1,5 +1,5 @@
 ---
-title: How to Install Go in Ubuntu 16.04/18.04
+title: How to Install Go on Ubuntu 18.04/20.04
 author: Edd Turtle
 type: post
 date: 2016-05-29T17:37:45+00:00
@@ -7,6 +7,7 @@ url: /how-to-install-go-in-ubuntu-16-04/
 tags:
   - 16.04
   - 18.04
+  - 20.04
   - bash
   - install
   - local
@@ -18,14 +19,14 @@ tags:
 ---
 Ubuntu does come with a version of go (installable through `apt install go`) but it won't be as up-to-date as downloading it directly. And I know many gophers like using the latest version.
 
-To begin with we'll start by downloading the latest version and once downloaded we extract it into a folder we can work with. (You can find the [latest version here](https://golang.org/dl/)).
+To begin with we'll start by downloading the latest version and, once downloaded, we extract it into a folder we can work with (you can find the [latest version here](https://golang.org/dl/)).
 
 ```bash
-wget https://dl.google.com/go/go1.12.4.linux-amd64.tar.gz
+wget https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz
 ```
 
 ```bash
-sudo tar -C /usr/local -xvf go1.12.4.linux-amd64.tar.gz
+sudo tar -C /usr/local -xvf go1.14.2.linux-amd64.tar.gz
 ```
 
 We then need to add some environment variables so Go knows where our work/code directory is located. GOPATH should point to the folder where you'll be working in. This folder once setup should have your `src`, `bin` and `pkg` folders.
@@ -53,10 +54,10 @@ As the final test, if we run this:
 go version
 ```
 
-We should see: `go version go1.12.4 linux/amd64`
+We should see: `go version go1.14.2 linux/amd64`
 
 Finally, some clean-up
 
 ```bash
-rm go1.12.4.linux-amd64.tar.gz
+rm go1.14.2.linux-amd64.tar.gz
 ```
