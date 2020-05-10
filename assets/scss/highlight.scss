@@ -1,122 +1,62 @@
-/*
- * highlightjs-material-dark-theme
- * Material Dark theme for Highlight.js
- * Based off of https://github.com/equinusocio/material-theme
- * For use with Highlight.js, https://github.com/isagalaev/highlight.js
- */
-
+/* IR_Black style (c) Vasily Mikhailitchenko <vaskas@programica.ru> */
 .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 1em;
-  background: #2B2B2D;
-  color: lighten(#CDD3D8, 6%);
-  font-family: "Fira Mono", monospace;
-  font-size: .8rem;
-  border: 1px solid #1C1C1E;
-  border-left-width: 6px;
-  border-radius: 2px;
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+    background: #2B2B2D;
+    color: lighten(#CDD3D8, 6%);
+    font-family: "Fira Mono", monospace;
+    font-size: .8rem;
+    border: 1px solid #1C1C1E;
+    border-left-width: 6px;
+    border-radius: 2px;
 }
+
 .hljs > *::selection {
-  background-color: #3e4451;
+    background-color: #3e4451;
 }
 
-.hljs-comment {
-  color: lighten(#656565, 10%);
-  font-style: italic;
+.hljs-comment, .hljs-quote, .hljs-meta {
+    color: #7c7c7c;
+    font-style: italic;
 }
 
-.hljs-selector-tag {
-  color: #C792EA;
+.hljs-keyword, .hljs-selector-tag, .hljs-tag, .hljs-name {
+    color: #96cbfe;
 }
 
-.hljs-string,
+.hljs-attribute, .hljs-selector-id {
+    color: #ffffb6;
+}
+
+.hljs-string, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-addition {
+    color: #a8ff60;
+}
+
 .hljs-subst {
-  color: #C3E88D;
+    color: #daefa3;
 }
 
-.hljs-number,
-.hljs-regexp,
-.hljs-variable,
-.hljs-template-variable {
-  color: #F77669;
+.hljs-regexp, .hljs-link {
+    color: #e9c062;
 }
 
-.hljs-keyword {
-  color: #C792EA;
-}
-.hljs-function > .hljs-title {
-  color: #75A5FF;
-}
-.hljs-tag {
-  color: #abb2bf;
-}
-.hljs-name {
-  color: #e06c75;
-}
-.hljs-type {
-  color: #da4939;
+.hljs-title, .hljs-section, .hljs-type, .hljs-doctag {
+    color: #ffffb6;
 }
 
-.hljs-attribute {
-  color: #80CBBF;
+.hljs-symbol, .hljs-bullet, .hljs-variable, .hljs-template-variable, .hljs-literal {
+    color: #c6c5fe;
 }
 
-.hljs-symbol,
-.hljs-bullet,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-link {
-  color: #C792EA;
-}
-
-.hljs-params {
-  color: #EEFFF7;
-}
-
-
-.hljs-meta {
-  color: #75A5FF;
-}
-
-.hljs-title {
-  color: #75A5FF;
-}
-
-.hljs-section {
-  color: #ffc66d;
-}
-
-.hljs-addition {
-  background-color: #144212;
-  color: #e6e1dc;
-  display: inline-block;
-  width: 100%;
-}
-
-.hljs-deletion {
-  background-color: #600;
-  color: #e6e1dc;
-  display: inline-block;
-  width: 100%;
-}
-
-.hljs-selector-class {
-  color: #FFCB68;
-}
-
-.hljs-selector-id {
-  color: #F77669;
+.hljs-number, .hljs-deletion {
+    color: #ff73fd;
 }
 
 .hljs-emphasis {
-  font-style: italic;
+    font-style: italic;
 }
 
 .hljs-strong {
-  font-weight: bold;
-}
-
-.hljs-link {
-  text-decoration: underline;
+    font-weight: bold;
 }
