@@ -127,12 +127,6 @@
       "src": "fontawesome"
     },
     {
-      "uid": "4743b088aa95d6f3b6b990e770d3b647",
-      "css": "facebook-squared",
-      "code": 62216,
-      "src": "fontawesome"
-    },
-    {
       "uid": "26613a2e6bc41593c54bead46f8c8ee3",
       "css": "file-code",
       "code": 61897,
@@ -142,6 +136,12 @@
       "uid": "e5d624264734620fa9f98d59e6dc941f",
       "css": "compass",
       "code": 61774,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "c8585e1e5b0467f28b70bce765d5840c",
+      "css": "docs",
+      "code": 61637,
       "src": "fontawesome"
     }
   ]

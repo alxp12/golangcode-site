@@ -8,6 +8,7 @@
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
+<script src="{{ .Site.BaseURL }}js/clipboard-2.0.6.min.js"></script>
 {{ $mainJs := resources.Get "js/main.js" | resources.Minify | fingerprint }}
 <script src="{{ $mainJs.Permalink }}"></script>
 

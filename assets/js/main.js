@@ -15,6 +15,7 @@ function domReady(fn) {
 
 domReady(function() { 
 
+
     // =============================
     // Lazy-load Disqus
     // =============================
@@ -153,6 +154,38 @@ domReady(function() {
             eventAction: 'submit',
             transport: 'beacon'
         });
+    });
+
+    // =============================
+    // COPY TO CLIPBOARD BUTTON
+    // =============================
+
+    document.querySelectorAll('pre').forEach( function(val) {
+
+        if (!ClipboardJS.isSupported()) {
+            return;
+        }
+
+        var button = document.createElement('a');
+        button.setAttribute('href', 'javascript:void(0);');
+        button.setAttribute('data-tooltip', 'Copy to Clipboard');
+        button.innerHTML = '<i class="icon-docs"></i>';
+        button.className = 'pre-copy-to-clipboard tooltip-bottom';
+        val.parentNode.insertBefore(button, val);
+
+        var clip = new ClipboardJS(button, {
+            text: function(trigger) {
+                return trigger.parentNode.innerText;
+            }
+        });
+
+        clip.on('success', function(e) {
+            e.trigger.setAttribute('data-tooltip', 'Copied!');
+            setTimeout( function() {
+                e.trigger.setAttribute('data-tooltip', 'Copy to Clipboard');
+            }, 2000);
+        });
+
     });
 
 });
