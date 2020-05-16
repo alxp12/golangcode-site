@@ -953,27 +953,35 @@ a.symbol {
  */
 
 #wrapper.tags {
-  padding: 0px 40px 20px 40px;
-}
-.page-tags {
+    padding: 0px 40px 20px 40px;
     text-align: center;
+    max-width: 1200px;
 }
 
 .page-tags .tags {
-    margin: 10px 15px;
+    margin: 8px 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
     display: inline-block;
 }
 
-.page-tags .tags a {
-    color: #666;
+$color-1: navy;
+$color-2: lighten(#5badf0, 20%);
+$steps: 25;
+@for $i from 1 to $steps {
+    .page-tags .tags a[rel="#{$i}"] {
+        font-size: 11px + $i;
+        color: mix($color-1, $color-2, percentage($i / ($steps - 1)))
+    }
 }
 
-.page-tags .tags:hover a {
+.page-tags .tags a[rel="1"] { color: #bddfb7; }
+.page-tags .tags a[rel="2"] { color: #dfcd37; }
+.page-tags .tags a[rel="3"] { color: #e38383; }
+
+.page-tags .tags a:hover {
     color: #3a78d7;
 }
-
 
 .page-separator {
     display: block !important;
