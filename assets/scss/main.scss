@@ -806,9 +806,9 @@ h2.month {
     font: 300 16px/1.6 $serif-stack;
 }
 
-#disqus_thread, #ds-thread {
+#disqus_thread {
     margin-top: 20px;
-    min-height: 20px;
+    min-height: 200px;
 }
 
 #sharing a.facebook {
@@ -869,6 +869,9 @@ h2.month {
         font-size: 12px;
     }
     .post h1 {
+        font-size: 24px;
+    }
+    .post header h1 {
         font-size: 24px;
     }
     .post h2 {
