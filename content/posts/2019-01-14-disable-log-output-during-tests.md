@@ -29,24 +29,24 @@ To disregard the logs for these tests we use the [`TestMain`](https://golang.org
 package main
 
 import (
-  "testing"
-  "log"
-  "io/ioutil"
-  "os"
+	"testing"
+	"log"
+	"io/ioutil"
+	"os"
 )
 
 // SETUP
 // Importantly you need to call Run() once you've done what you need
 func TestMain(m *testing.M) {
-  log.SetOutput(ioutil.Discard)
-  os.Exit(m.Run())
+	log.SetOutput(ioutil.Discard)
+	os.Exit(m.Run())
 }
 
 func TestDoAndLogSomething(t *testing.T) {
-  // Basic Test Example
-  if result := DoAndLogSomething(); result != 5 {
-    t.Errorf("TestDoAndLogSomething returned an unexpected number: got %v want %v", result, 5)
-  }
+	// Basic Test Example
+	if result := DoAndLogSomething(); result != 5 {
+		t.Errorf("TestDoAndLogSomething returned an unexpected number: got %v want %v", result, 5)
+	}
 }
 ```
 
@@ -58,12 +58,12 @@ package main
 import "log"
 
 func main() {
-  DoAndLogSomething()
+	DoAndLogSomething()
 }
 
 func DoAndLogSomething() int {
-  log.Println("Hello GoLangCode.com")
-  return 5
+	log.Println("Hello GoLangCode.com")
+	return 5
 }
 ```
 
