@@ -52,6 +52,10 @@ h6 {
     margin-bottom: 6px;
 }
 
+p {
+    margin: 1rem 0;
+}
+
 code {
     font: .9em "Fira Mono", monospace;
     color: #222;
@@ -61,8 +65,13 @@ code {
     margin: 0 1px;
 }
 
-p, pre {
+.highlight { 
+    position: relative; 
     margin: 1rem 0;
+}
+.highlight > div.chroma,
+.highlight > div.chroma table {
+    border-radius: 4px; 
 }
 
 pre {
@@ -73,16 +82,21 @@ pre {
 pre code {
     display: block;
     overflow-x: auto;
-    padding: 1em;
-    background: #2B2B2D;
+    padding: 1em .9em;
     color: #CDD3D8;
     font: .8rem/23px "Fira Mono", monospace;
-    border: 1px solid #1C1C1E;
-    border-left-width: 6px;
-    border-radius: 2px;
+    border: 0px solid #1C1C1E;
+    border-left-width: 1px;
 }
 
-.highlight { position: relative; }
+.highlight-no-syntax {
+    position: relative; 
+}
+pre code:not([class^="language-"]) {
+    background-color: #2B2B2D;
+    border-radius: 4px; 
+}
+
 
 .pre-copy-to-clipboard {
     transition: opacity .1s ease-in-out;
@@ -93,7 +107,8 @@ pre code {
     right: 0;
 }
 
-.highlight:hover .pre-copy-to-clipboard {
+.highlight:hover .pre-copy-to-clipboard,
+.highlight-no-syntax:hover  .pre-copy-to-clipboard {
     opacity: .7;
 
     &:hover,
@@ -534,7 +549,7 @@ thead th, th {
 
 img, video {
     max-width: 100%;
-    border-radius: 3px;
+    border-radius: 4px;
 }
 
 

@@ -19,8 +19,6 @@
 	<script src="{{ $searchJs.Permalink }}"></script>
 {{ end }}
 
-<script src="{{ .Site.BaseURL }}js/highlight.pack-10.0.2.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
 {{ range .Site.Params.customJS }}<script src="{{ $.Site.BaseURL }}{{ . }}"></script>{{ end }}
 
 {{ if eq .Type "post" }}<script src="https://platform.twitter.com/widgets.js" crossorigin="anonymous" async defer charset="utf-8"></script>{{ end }}

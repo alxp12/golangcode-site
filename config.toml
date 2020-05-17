@@ -3,6 +3,7 @@ languageCode = "en-GB"
 ignoreFiles = [ "\\.scss" ]
 title = "GolangCode"
 theme="site-theme"
+pygmentsUseClasses = true
 
 [outputs]
 	home = ["HTML", "RSS", "JSON"]
@@ -21,6 +22,12 @@ theme="site-theme"
 	rss-squared = "/index.xml"
 	twitter-squared = "https://twitter.com/golangcode"
 	github-squared = "https://github.com/eddturtle/golangcode-site"
+
+[markup]
+	[markup.highlight]
+		lineNoStart = 1
+		lineNos = true
+		tabWidth = 4
 
 [deployment]
 	order = [".jpg$", ".gif$"]

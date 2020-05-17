@@ -166,6 +166,21 @@ domReady(function() {
             return;
         }
 
+        // skip line numbers
+        if (val.className === 'chroma') {
+            if (val.childNodes[0].className === "") {
+                return;
+            }
+        }
+
+        // non syntax highlighted - add wrapper to contain button
+        if (val.parentNode.nodeName !== 'TD') {
+            var wrapper = document.createElement('div');
+            wrapper.className = 'highlight-no-syntax';
+            val.parentNode.appendChild(wrapper);
+            wrapper.appendChild(val);
+        }
+
         var button = document.createElement('a');
         button.setAttribute('href', 'javascript:void(0);');
         button.setAttribute('data-tooltip', 'Copy to Clipboard');
