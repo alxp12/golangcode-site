@@ -65,7 +65,8 @@ code {
     margin: 0 1px;
 }
 
-.highlight { 
+.highlight,
+.highlight-no-syntax { 
     position: relative; 
     margin: 1rem 0;
 }
@@ -1047,7 +1048,7 @@ $steps: 25;
 
 .about-area {
     border: 3px solid lighten(#5badf0, 15%);
-    border-radius: 2px;
+    border-radius: 4px;
     background-color: lighten(#5badf0, 32%);
     padding: 14px;
     margin-bottom: 20px;
@@ -1129,7 +1130,7 @@ $steps: 25;
     max-height: 80px;
 
     transition-property: margin, max-height;
-    transition-duration: .5s;
+    transition-duration: .3s;
     transition-timing-function: linear;
 }
 .search-form.closed {
