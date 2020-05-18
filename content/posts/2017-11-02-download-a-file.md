@@ -17,6 +17,7 @@ tags:
   - http
   - get
   - response
+meta_image: 2017/download-basic.png
 ---
 
 This example shows how to download a file from the web on to your local machine. By using `io.Copy()` and passing the response body directly in we stream the data to the file and avoid having to load it all into the memory - it's not a problem with small files, but it makes a difference when downloading large files.
@@ -29,40 +30,43 @@ If you want to use the filename from the url, you can replace the `filepath` var
 package main
 
 import (
-    "io"
-    "net/http"
-    "os"
+	"fmt"
+	"io"
+	"net/http"
+	"os"
 )
 
 func main() {
-
-    fileUrl := "https://golangcode.com/images/avatar.jpg"
-
-    if err := DownloadFile("avatar.jpg", fileUrl); err != nil {
-        panic(err)
-    }
+	fileUrl := "https://golangcode.com/logo.svg"
+	err := DownloadFile("logo.svg", fileUrl)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("Downloaded: " + fileUrl)
 }
 
 // DownloadFile will download a url to a local file. It's efficient because it will
 // write as it downloads and not load the whole file into memory.
 func DownloadFile(filepath string, url string) error {
 
-    // Get the data
-    resp, err := http.Get(url)
-    if err != nil {
-        return err
-    }
-    defer resp.Body.Close()
+	// Get the data
+	resp, err := http.Get(url)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
 
-    // Create the file
-    out, err := os.Create(filepath)
-    if err != nil {
-        return err
-    }
-    defer out.Close()
+	// Create the file
+	out, err := os.Create(filepath)
+	if err != nil {
+		return err
+	}
+	defer out.Close()
 
-    // Write the body to file
-    _, err = io.Copy(out, resp.Body)
-    return err
+	// Write the body to file
+	_, err = io.Copy(out, resp.Body)
+	return err
 }
 ```
+
+![download](/img/2017/download-basic.png)
